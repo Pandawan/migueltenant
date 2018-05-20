@@ -1,0 +1,160 @@
+html,
+body {
+	font-family: 'Montserrat', sans-serif;
+	color: #333;
+	font-weight: 400;
+}
+
+a {
+	color: #333;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #111;
+}
+
+main {
+	margin: 0 auto;
+	max-width: 75em;
+}
+
+section {
+	padding: 1.75em;
+}
+
+.title {
+	font-weight: 900;
+	color: #111;
+	font-size: 5em;
+	line-height: 0.75em;
+	margin: 0;
+}
+
+.subtitle {
+	font-weight: 600;
+	color: #aaa;
+	font-size: 2.5em;
+	margin: 0;
+}
+
+.upper {
+	text-transform: uppercase;
+}
+
+.lower {
+	text-transform: lowercase;
+}
+
+.special {
+	font-weight: 600;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.medium-text {
+	font-size: 1.5em;
+}
+
+.mobile-only {
+	display: none;
+}
+
+.grid {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+}
+
+.grid>a {
+	flex: 1;
+	min-height: 10em;
+	margin: 0.5em;
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	/* No grid-gap because IE doesn't support it so use margin from grid>a instead */
+}
+
+.grid>a {
+	padding: 1em;
+	border: 1px solid #333;
+}
+
+.card {
+	height: 15em;
+	position: relative;
+	background-size: cover;
+	background-position: center center;
+}
+
+.card>h2 {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	margin: 0;
+	padding: 0.25em;
+	background-color: white;
+	color: #333;
+}
+
+#info {
+	position: fixed;
+	bottom: 0;
+}
+
+#heading {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 768px) {
+	a {
+		text-decoration: underline;
+	}
+	.title {
+		font-size: 4em;
+	}
+	.title-smaller {
+		font-size: 3em;
+	}
+	.subtitle {
+		font-size: 1.75em;
+	}
+	.info-text {
+		font-size: 1em;
+	}
+	.not-mobile {
+		display: none;
+	}
+	.mobile-only {
+		display: block;
+	}
+	.grid {
+		/* If old mobile, use flex with 1 card every row */
+		flex-flow: column wrap;
+		grid-template-columns: 1fr;
+	}
+}
+
+@media only screen and (max-width: 374px) {
+	.title {
+		font-size: 3.5em;
+	}
+
+	.title-smaller {
+		font-size: 2.5em;
+	}
+	.subtitle {
+		font-size: 1.5em;
+	}
+}
