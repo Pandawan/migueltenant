@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+
+<head lang="en">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Remove Slader Ads</title>
+    <meta name="description" content="Utility to remove ads in Slader.">
+    <meta name="author" content="Miguel T">
+    <link rel="icon" type="image/png" href="./slader-icon.png">
+    <!-- Facebook Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="WEBSITE_LINK">
+    <meta property="og:title" content="Content Title">
+    <meta property="og:image" content="WEBSITE_LINK/slader-icon.png">
+    <meta property="og:description" content="Utility to remove ads in Slader.">
+    <meta property="og:site_name" content="Remove Slader Ads">
+    <meta property="og:locale" content="en_US">
+    <style>
+        html,
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-color: #fefefe;
+        }
+
+        main {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo {
+            max-width: 5em;
+            vertical-align: top;
+        }
+
+        .title-container {
+            display: inline-block;
+            padding-top: 1em;
+            padding-left: 1em;
+        }
+
+        .title {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .subtitle {
+            margin-top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div>
+            <img class="logo" src="./slader-icon.png" alt="Slader" />
+            <div class="title-container">
+                <h1 class="title">Remove Slader Ads</h1>
+                <h3 class="subtitle">by Miguel T</h3>
+            </div>
+            <p>Tired of Slader Ads that prevent you from seeing homework answers?</p>
+            <p>Drag this link into your Bookmark bar and click on it whenever you see a Slader Ad.</p>
+            <a id="script-link">Remove Slader Ads</a>
+        </div>
+    </main>
+    <script>
+        var sladerNoAd =
+            "(function(){console.log('Remove Slader Ads by Miguel T. https://migueltenant.com');var self=this.SladerInterstitial;if(self&&!self.intFinishCalled){self.intFinishCalled=!0;$('body').removeClass('interstitial-active');$('#video-interstitial-lkqd').html('');var gid=$('.interstitial-modal').data('gid');var solutionsList=$('.solutions-list');$('.solution-gate-container').remove();if(solutionsList.length&&solutionsList.hasClass('cheatsheet-solutions')){Slader.Solutions.loadNextCheatsheetPage(gid)}else{Slader.Solutions.reloadSolutions(gid)}}})()";
+        var bookmarklet = encodeURIComponent(sladerNoAd);
+
+        var link = document.getElementById('script-link');
+        link.href = "javascript:" + bookmarklet;
+    </script>
+</body>
+
+</html>
