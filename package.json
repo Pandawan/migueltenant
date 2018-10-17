@@ -1,0 +1,21 @@
+{
+  "name": "migueltenant",
+  "version": "1.0.0",
+  "private": true,
+  "description": "My website",
+  "scripts": {
+    "test": "serve --no-clipboard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PandawanFr/migueltenant.git"
+  },
+  "author": "Miguel Tenant de La Tour",
+  "bugs": {
+    "url": "https://github.com/PandawanFr/migueltenant/issues"
+  },
+  "homepage": "https://github.com/PandawanFr/migueltenant#readme",
+  "dependencies": {
+    "serve": "^10.0.2"
+  }
+}
