@@ -44,12 +44,17 @@
         }
 
         .title {
+            font-size: 1.25em;
             margin-top: 0;
             margin-bottom: 0;
         }
 
         .subtitle {
             margin-top: 0;
+        }
+
+        .pic-ad-wall {
+            width: 100%;
         }
 
         .small-extra {
@@ -67,6 +72,10 @@
         }
 
         @media only screen and (min-width: 768px) {
+            .title {
+                font-size: 2em;
+            }
+
             .title-container {
                 display: inline-block;
                 padding-top: 1em;
@@ -84,10 +93,15 @@
                 <h1 class="title">Remove Slader Ads</h1>
                 <h3 class="subtitle">by <a href="https://migueltenant.com/">Miguel T</a></h3>
             </div>
-            <p>Tired of Slader Ads that prevent you from seeing homework answers?</p>
-            <p>Drag the link below into your Bookmarks bar and click on it whenever you see a Slader Ad (computer
-                only).</p>
-            <a id="script-link">Remove Slader Ads</a>
+            <div class="content">
+                <img class="pic-ad-wall" src="./slader-ads-pic.png" alt="Picture of Slader Ad Wall" />
+                <p>Tired of Slader Ads that prevent you from seeing homework answers?</p>
+                <p>
+                    Drag the link below into your Bookmarks bar
+                    and click on it whenever you see a Slader Ad Wall (computer only).
+                </p>
+                <a id="script-link">Remove Slader Ads</a>
+            </div>
         </div>
     </main>
     <p class="small-extra"><a href="https://opensource.org/licenses/MIT">This is licensed under MIT.</a></p>
