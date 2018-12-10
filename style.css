@@ -1,164 +1,159 @@
 html,
 body {
-	font-family: 'Montserrat', sans-serif;
-	color: #333;
-	background-color: #fcfcfc;
-	padding: 0;
-	margin: 0;
+  font-family: "Montserrat", sans-serif;
+  color: #333;
+  background-color: #fcfcfc;
+  padding: 0;
+  margin: 0;
 }
 
 a {
-	color: inherit;
-
+  color: inherit;
 }
 
 /* Generic */
 
 .container {
-	margin: 0 auto;
-	max-width: 50rem;
+  margin: 0 auto;
+  max-width: 50rem;
 }
 
 .full {
-	width: 100%;
-	text-align: center;
+  width: 100%;
+  text-align: center;
 }
 
 .title {
-	font-size: 2em;
+  font-size: 2em;
 }
 
 @media only screen and (max-width: 768px) {
-	.title {
-		font-size: 1.5em;
-	}
+  .title {
+    font-size: 1.5em;
+  }
 }
 
 @media only screen and (max-width: 374px) {
-	.title {
-		font-size: 1.25em;
-	}
+  .title {
+    font-size: 1.25em;
+  }
 }
 
 /* Header */
 
 .profile {
-	margin-top: 5em;
+  margin-top: 5em;
 }
 
-.profile>.picture {
-	max-width: 30%;
-	min-width: 7.5rem;
-	height: auto;
+.profile > .picture {
+  max-width: 30%;
+  min-width: 7.5rem;
+  height: auto;
 
-	border: 5px solid white;
-	border-radius: 50%;
-	box-shadow: 0 0 20px 0 rgba(0, 0, 0, .25);
+  border: 5px solid white;
+  border-radius: 50%;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.25);
 }
 
 /* Summary */
 
 .summary {
-	font-size: 1.5em;
-	color: #555;
+  font-size: 1.5em;
+  color: #555;
 }
 
-.summary>* {
-	margin-top: 0.1em;
-	margin-bottom: 0.1em;
+.summary > * {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
 }
 
 @media only screen and (max-width: 768px) {
-	.summary {
-		font-size: 1.15em;
-	}
+  .summary {
+    font-size: 1.15em;
+  }
 }
 
 @media only screen and (max-width: 374px) {
-	.summary {
-		font-size: 1em;
-	}
+  .summary {
+    font-size: 1em;
+  }
 }
 
 /* Contact */
 
 .contact {
-	margin-top: 2em;
+  margin-top: 2em;
 }
 
 .contact * {
-	margin-left: 0.15em;
-	margin-right: 0.15em;
+  margin-left: 0.15em;
+  margin-right: 0.15em;
 }
 
 /* Work */
 
 .work {
-	margin-top: 10em;
-	margin-bottom: 5em;
+  margin-top: 10em;
+  margin-bottom: 5em;
 }
 
 .work-title {
-	font-size: 1.5em;
+  font-size: 1.5em;
 }
 
 .project {
-	margin-top: 2.5em;
+  margin-top: 2.5em;
 }
 
 .project-title {
-	margin-bottom: 0.5em;
+  margin-bottom: 0.5em;
 }
 
 .project-image {
-	margin: 0 auto;
-	display: block;
-	width: 50em;
-	height: auto;
-	object-fit: cover;
-	border-radius: 1em;
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 1em;
 }
 
 .project-image.top {
-	object-position: top;
+  object-position: top;
 }
 
 .project-image:hover,
 .project-image:active,
 .project-image:focus {
-	box-shadow: 0 0 20px 0 rgba(0, 0, 0, .25);
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.25);
 }
 
 @media only screen and (max-width: 1024px) {
-
-	.project-image {
-		width: 35em;
-		height: auto;
-	}
+  .project-image-container {
+    width: 35em;
+  }
 }
 
 @media only screen and (max-width: 767px) {
-	.work {
-		margin-top: 5em;
-	}
+  .work {
+    margin-top: 5em;
+  }
 
-	.work-title {
-		font-size: 1.25em;
-	}
+  .work-title {
+    font-size: 1.25em;
+  }
 
-	.project-image {
-		width: 75%;
-		height: auto;
-	}
+  .project-image-container {
+    width: 75%;
+  }
 }
 
 @media only screen and (max-width: 374px) {
-	.work-title {
-		font-size: 1.15em;
-	}
+  .work-title {
+    font-size: 1.15em;
+  }
 
-	.project-image {
-		width: 75%;
-		height: 10em;
-	}
+  .project-image-container {
+    width: 75%;
+    height: 10em;
+  }
 }
