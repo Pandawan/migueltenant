@@ -2,159 +2,149 @@ html,
 body {
 	font-family: 'Montserrat', sans-serif;
 	color: #333;
-	font-weight: 400;
+	background-color: #fcfcfc;
+	padding: 0;
+	margin: 0;
 }
 
 a {
-	color: #333;
-	text-decoration: none;
+	color: inherit;
+
 }
 
-a:hover {
-	color: #111;
-}
+/* Generic */
 
-main {
+.container {
 	margin: 0 auto;
-	max-width: 75em;
+	max-width: 50rem;
 }
 
-section {
-	padding: 1.75em;
+.full {
+	width: 100%;
+	text-align: center;
 }
 
 .title {
-	font-weight: 900;
-	color: #111;
-	font-size: 5em;
-	line-height: 0.75em;
-	margin: 0;
-}
-
-.subtitle {
-	font-weight: 600;
-	color: #aaa;
-	font-size: 2.5em;
-	margin: 0;
-}
-
-.upper {
-	text-transform: uppercase;
-}
-
-.lower {
-	text-transform: lowercase;
-}
-
-.special {
-	font-weight: 600;
-}
-
-.left {
-	float: left;
-}
-
-.right {
-	float: right;
-}
-
-.medium-text {
-	font-size: 1.5em;
-}
-
-.mobile-only {
-	display: none;
-}
-
-.grid {
-	display: flex;
-	flex-flow: row wrap;
-	justify-content: space-around;
-}
-
-.grid>a {
-	flex: 1;
-	min-height: 10em;
-	margin: 0.5em;
-}
-
-.grid {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	/* No grid-gap because IE doesn't support it so use margin from grid>a instead */
-}
-
-.grid>a {
-	padding: 1em;
-	border: 1px solid #333;
-}
-
-.card {
-	height: 15em;
-	position: relative;
-	background-size: cover;
-	background-position: center center;
-}
-
-.card>h2 {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	margin: 0;
-	padding: 0.25em;
-	background-color: white;
-	color: #333;
-}
-
-#info {
-	position: fixed;
-	bottom: 0;
-}
-
-#heading {
-	display: flex;
-	justify-content: space-between;
-	flex-wrap: wrap;
+	font-size: 2em;
 }
 
 @media only screen and (max-width: 768px) {
-	a {
-		text-decoration: underline;
-	}
 	.title {
-		font-size: 4em;
-	}
-	.title-smaller {
-		font-size: 3em;
-	}
-	.subtitle {
-		font-size: 1.75em;
-	}
-	.info-text {
-		font-size: 1em;
-	}
-	.not-mobile {
-		display: none;
-	}
-	.mobile-only {
-		display: block;
-	}
-	.grid {
-		/* If old mobile, use flex with 1 card every row */
-		flex-flow: column wrap;
-		grid-template-columns: 1fr;
+		font-size: 1.5em;
 	}
 }
 
 @media only screen and (max-width: 374px) {
 	.title {
-		font-size: 3.5em;
+		font-size: 1.25em;
+	}
+}
+
+/* Header */
+
+.profile {
+	margin-top: 5em;
+}
+
+.profile>.picture {
+	max-width: 30%;
+	min-width: 7.5rem;
+	height: auto;
+
+	border: 5px solid white;
+	border-radius: 50%;
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, .25)
+}
+
+/* Summary */
+
+.summary {
+	font-size: 1.5em;
+	color: #555;
+}
+
+.summary>* {
+	margin-top: 0.1em;
+	margin-bottom: 0.1em;
+}
+
+@media only screen and (max-width: 768px) {
+	.summary {
+		font-size: 1.15em;
+	}
+}
+
+@media only screen and (max-width: 374px) {
+	.summary {
+		font-size: 1em;
+	}
+}
+
+/* Work */
+
+.work {
+	margin-top: 5em;
+	margin-bottom: 5em;
+}
+
+.work-title {
+	font-size: 1.5em;
+}
+
+.project {
+	margin-top: 2.5em;
+}
+
+.project-title {
+	margin-bottom: 0.5em;
+}
+
+/*
+.work-image {
+	width: 100%;
+	height: 35em;
+	object-fit: cover;
+}
+*/
+
+.project-image {
+	margin: 0 auto;
+	display: block;
+	width: 50em;
+	height: auto;
+	object-fit: cover;
+	border-radius: 1em;
+}
+
+.project-image.top {
+	object-position: top;
+}
+
+@media only screen and (max-width: 1024px) {
+	.project-image {
+		width: 35em;
+		height: auto;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.work-title {
+		font-size: 1.25em;
 	}
 
-	.title-smaller {
-		font-size: 2.5em;
+	.project-image {
+		width: 75%;
+		height: auto;
 	}
-	.subtitle {
-		font-size: 1.5em;
+}
+
+@media only screen and (max-width: 374px) {
+	.work-title {
+		font-size: 1.15em;
+	}
+
+	.project-image {
+		width: 75%;
+		height: 10em;
 	}
 }
