@@ -1,6 +1,6 @@
 {
   "name": "migueltenant",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "private": true,
   "description": "My website",
   "scripts": {
@@ -16,6 +16,6 @@
   },
   "homepage": "https://github.com/PandawanFr/migueltenant#readme",
   "dependencies": {
-    "serve": "^10.1.1"
+    "serve": "^11.0.0"
   }
 }

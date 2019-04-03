@@ -106,7 +106,13 @@ a {
 }
 
 .project-title {
-  margin-bottom: 0.5em;
+  margin-bottom: 0.75em;
+}
+
+.project-description {
+  margin: 0;
+  margin-top: 0.25em;
+  font-size: 1rem;
 }
 
 .project-image {
