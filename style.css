@@ -45,7 +45,7 @@ a {
   margin-top: 5em;
 }
 
-.profile > .picture {
+.profile>.picture {
   max-width: 30%;
   min-width: 7.5rem;
   height: auto;
@@ -62,7 +62,7 @@ a {
   color: #555;
 }
 
-.summary > * {
+.summary>* {
   margin-top: 0.1em;
   margin-bottom: 0.1em;
 }
@@ -89,6 +89,16 @@ a {
   margin-left: 0.15em;
   margin-right: 0.15em;
 }
+
+
+@media only screen and (max-width: 768px) {
+  .contact * {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    display: block;
+  }
+}
+
 
 /* Work */
 
@@ -162,4 +172,10 @@ a {
     width: 75%;
     height: 10em;
   }
+}
+
+/* thank-you */
+
+.thank-you {
+  margin-bottom: 2em;
 }
