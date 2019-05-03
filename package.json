@@ -4,7 +4,8 @@
   "private": true,
   "description": "My website",
   "scripts": {
-    "start": "serve --no-clipboard"
+    "start": "serve --no-clipboard",
+    "optimize-images": "node ./tools/optimize-images.js"
   },
   "repository": {
     "type": "git",
@@ -17,5 +18,9 @@
   "homepage": "https://github.com/PandawanFr/migueltenant#readme",
   "dependencies": {
     "serve": "^11.0.0"
+  },
+  "devDependencies": {
+    "imagemin": "^6.1.0",
+    "imagemin-webp": "^5.0.0"
   }
 }
