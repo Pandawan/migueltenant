@@ -122,7 +122,7 @@ a {
 }
 
 .project-description {
-  margin: 0;
+  margin: 0 auto;
   margin-top: 0.25em;
   font-size: 1rem;
 }
@@ -146,6 +146,10 @@ a {
 }
 
 @media only screen and (max-width: 1024px) {
+  .project-description {
+    width: 35em;
+  }
+
   .project-image-container {
     width: 35em;
   }
@@ -160,6 +164,10 @@ a {
     font-size: 1.25em;
   }
 
+  .project-description {
+    width: 75%;
+  }
+
   .project-image-container {
     width: 75%;
   }
@@ -171,7 +179,6 @@ a {
   }
 
   .project-image-container {
-    width: 75%;
     height: 10em;
   }
 }
@@ -179,5 +186,5 @@ a {
 /* thank-you */
 
 .thank-you {
-  margin-bottom: 2em;
+  margin-bottom: 2.5em;
 }
