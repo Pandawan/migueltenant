@@ -1,6 +1,6 @@
 {
   "name": "migueltenant",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "private": true,
   "description": "My website",
   "scripts": {
@@ -17,10 +17,10 @@
   },
   "homepage": "https://github.com/PandawanFr/migueltenant#readme",
   "dependencies": {
-    "serve": "^11.0.0"
+    "serve": "^11.0.1"
   },
   "devDependencies": {
     "imagemin": "^6.1.0",
-    "imagemin-webp": "^5.0.0"
+    "imagemin-webp": "^5.1.0"
   }
 }
