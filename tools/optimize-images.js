@@ -13,6 +13,8 @@ module.exports = async function (input, output) {
         imageminWebp({ quality: 100 })
       ]
     });
+
+    console.log('Successfully optimized images.');
   } catch (error) {
     console.error(`Error while optimizing images: ${error}`);
   }

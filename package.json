@@ -5,7 +5,8 @@
   "description": "My website",
   "scripts": {
     "start": "eleventy --serve",
-    "build": "eleventy"
+    "build": "eleventy",
+    "build-serve": "eleventy && serve --no-clipboard -l 8080"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,7 @@
   "devDependencies": {
     "@11ty/eleventy": "^0.8.3",
     "imagemin": "^6.1.0",
-    "imagemin-webp": "^5.1.0"
+    "imagemin-webp": "^5.1.0",
+    "serve": "^11.0.2"
   }
 }
