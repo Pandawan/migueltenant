@@ -15,6 +15,10 @@ a {
 
 /* Generic */
 
+.hidden {
+  display: none;
+}
+
 .container {
   margin: 0 auto;
   max-width: 50rem;
@@ -41,13 +45,49 @@ a {
   }
 }
 
-/* Header */
+/* Navbar */
+.navbar {
+  margin-top: 3em;
+}
 
-.profile {
+.nav-links {
+  display: flex;
+  justify-content: flex-end;
+  margin: 2em;
+}
+
+.nav-links a {
+  font-size: 1em;
+}
+
+.nav-links a:not(:first-child) {
+  margin-left: 0.5em;
+}
+
+.nav-links a:not(:last-child) {
+  margin-right: 0.5em;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .navbar {
+    margin-top: 2em;
+  }
+}
+
+@media only screen and (max-width: 374px) {
+  .navbar {
+    margin-top: 1.5em;
+  }
+}
+
+/* Profile */
+
+#profile {
   margin-top: 5em;
 }
 
-.profile .picture {
+#profile .picture {
   max-width: 30%;
   min-width: 8.5rem;
   height: auto;
@@ -57,44 +97,54 @@ a {
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.25);
 }
 
-/* Summary */
-
-.summary {
-  font-size: 1.5em;
-  color: #555;
+@media only screen and (max-width: 374px) {
+  #profile {
+    margin-top: 3em;
+  }
 }
 
-.summary>* {
+
+/* Summary */
+
+#summary {
+  font-size: 1.5em;
+  color: #555;
+  max-width: 20em;
+}
+
+#summary>* {
   margin-top: 0.1em;
   margin-bottom: 0.1em;
 }
 
 @media only screen and (max-width: 768px) {
-  .summary {
+  #summary {
     font-size: 1.15em;
+    max-width: 18em;
   }
 }
 
 @media only screen and (max-width: 374px) {
-  .summary {
+  #summary {
     font-size: 1em;
+    max-width: 15em;
   }
 }
 
 /* Contact */
 
-.contact {
+#contact {
   margin-top: 2em;
 }
 
-.contact * {
+#contact * {
   margin-left: 0.15em;
   margin-right: 0.15em;
 }
 
 
 @media only screen and (max-width: 768px) {
-  .contact * {
+  #contact * {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
     display: block;
@@ -104,9 +154,10 @@ a {
 
 /* Work */
 
-.work {
-  margin-top: 10em;
+#work {
+  margin-top: 9em;
   margin-bottom: 5em;
+  padding-top: 1em;
 }
 
 .work-title {
@@ -156,7 +207,7 @@ a {
 }
 
 @media only screen and (max-width: 767px) {
-  .work {
+  #work {
     margin-top: 5em;
   }
 
@@ -185,6 +236,6 @@ a {
 
 /* thank-you */
 
-.thank-you {
+#thank-you {
   margin-bottom: 2.5em;
 }

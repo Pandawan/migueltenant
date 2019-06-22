@@ -1,3 +1,5 @@
 # Hello World
 
-This is a test page.
+Nothing to see here.
+
+[Go back home?](/)
