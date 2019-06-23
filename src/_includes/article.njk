@@ -1,0 +1,21 @@
+{% extends "default.njk" %}
+{% set type = 'article' %}
+{% block og %}
+    <meta property="og:site_name" content="Miguel Tenant de La Tour's Blog">
+    <meta property="og:type" content="article">
+{% endblock %}
+{% block style %}
+    <link rel="stylesheet" href="/css/blog.css" />
+{% endblock %}
+{% block main %} 
+    <section class="container">
+        <article class="content" id="article">
+            <header id="article-title">
+                <h1 class="title">{{ title }}</h1>
+            </header>
+            <section id="article-content">
+                {{ content | safe }}
+            </section>
+        </article>
+    </section>
+{% endblock %}

@@ -4,6 +4,7 @@
 
 - Fix navbar moving a tiny bit between index & blog
 - Add table of contents page for blog
+- Bump package version to 3.1.0
 
 ## Dev
 
