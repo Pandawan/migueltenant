@@ -1,0 +1,160 @@
+/** Stylesheet for index.html page **/
+
+/* Profile */
+
+#profile {
+    margin-top: 5em;
+  }
+  
+  #profile .picture {
+    max-width: 30%;
+    min-width: 8.5rem;
+    height: auto;
+  
+    border: 5px solid white;
+    border-radius: 50%;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.25);
+  }
+  
+  @media only screen and (max-width: 374px) {
+    #profile {
+      margin-top: 3em;
+    }
+  }
+  
+  
+  /* Summary */
+  
+  #summary {
+    font-size: 1.5em;
+    color: #555;
+    max-width: 20em;
+  }
+  
+  #summary>* {
+    margin-top: 0.1em;
+    margin-bottom: 0.1em;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    #summary {
+      font-size: 1.15em;
+      max-width: 18em;
+    }
+  }
+  
+  @media only screen and (max-width: 374px) {
+    #summary {
+      font-size: 1em;
+      max-width: 15em;
+    }
+  }
+  
+  /* Contact */
+  
+  #contact {
+    margin-top: 2em;
+  }
+  
+  #contact * {
+    margin-left: 0.15em;
+    margin-right: 0.15em;
+  }
+  
+  
+  @media only screen and (max-width: 768px) {
+    #contact * {
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+      display: block;
+    }
+  }
+  
+  
+  /* Work */
+  
+  #work {
+    margin-top: 9em;
+    margin-bottom: 5em;
+    padding-top: 1em;
+  }
+  
+  .work-title {
+    font-size: 1.5em;
+  }
+  
+  .project {
+    margin-top: 2.5em;
+  }
+  
+  .project-title {
+    margin-bottom: 0.75em;
+  }
+  
+  .project-description {
+    margin: 0 auto;
+    margin-top: 0.25em;
+    font-size: 1rem;
+  }
+  
+  .project-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 1em;
+  }
+  
+  .project-image.top {
+    object-position: top;
+  }
+  
+  .project-image:hover,
+  .project-image:active,
+  .project-image:focus {
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.25);
+  }
+  
+  @media only screen and (max-width: 1024px) {
+    .project-description {
+      width: 35em;
+    }
+  
+    .project-image-container {
+      width: 35em;
+    }
+  }
+  
+  @media only screen and (max-width: 767px) {
+    #work {
+      margin-top: 5em;
+    }
+  
+    .work-title {
+      font-size: 1.25em;
+    }
+  
+    .project-description {
+      width: 75%;
+    }
+  
+    .project-image-container {
+      width: 75%;
+    }
+  }
+  
+  @media only screen and (max-width: 374px) {
+    .work-title {
+      font-size: 1.15em;
+    }
+  
+    .project-image-container {
+      height: 10em;
+    }
+  }
+  
+  /* thank-you */
+  
+  #thank-you {
+    margin-bottom: 2.5em;
+  }

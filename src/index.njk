@@ -1,38 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+{% extends "default.njk" %}
+{% set type = 'index' %}
+{% set title = "Miguel Tenant de La Tour" %}
+{% set description = "Hi, I'm a 17 year old student who loves web and game development." %}
 
-    <title>Miguel Tenant de La Tour</title>
-    <meta name="description" content="Hi, I&#39;m a 17 year old student who loves web and game development." />
-
-    <meta property="og:title" content=Miguel Tenant de La Tour />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:description" content="Hi, I&#39;m a 17 year old student who loves web and game development." />
-    
-    
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-    <link rel="stylesheet" href="/css/main.css" />
-    
-    
+{% block style %}
   <link rel="stylesheet" href="css/index.css" />
+{% endblock %}
 
-  </head>
-
-  <body>
-    <header class="container full">
-      <nav class="navbar">
-        <div class="nav-links">
-          <a href="/">Home</a>
-          <a href="#work">Work</a>
-          <a href="/blog">Blog</a>
-        </div>
-      </nav>
-    </header>
-    <main>
-      
+{% block main %}
   <section class="container full" id="profile">
     <picture>
       <source type="image/webp" srcset="images/profile-pic.webp">
@@ -42,7 +17,7 @@
     <h1 class="title">Miguel Tenant de La Tour</h1>
   </section>
   <section class="container full" id="summary">
-    <p>Hi, I&#39;m a 17 year old student who loves web and game development.</p>
+    <p>{{description}}</p>
     <div id="contact">
       <a href="mailto:migueltenant@gmail.com">Contact</a>
       <a href="https://linkedin.com/in/migueltenant">LinkedIn</a>
@@ -153,8 +128,4 @@
       <p>Contact me at <a href="mailto:migueltenant@gmail.com">migueltenant@gmail.com</a>.</p>
     </div>
   </section>
-
-    </main>
-    <script src="/js/helper.js"></script>
-  </body>
-</html>
+{% endblock %}

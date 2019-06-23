@@ -4,24 +4,19 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
-    <title>My Rad Blog</title>
-    <meta name="description" content="Hello World" />
+    <title>{{title}}</title>
+    <meta name="description" content="{{description}}" />
 
-    <meta property="og:title" content=My Rad Blog />
+    <meta property="og:title" content={{title}} />
     <meta property="og:locale" content="en_US" />
-    <meta property="og:description" content="Hello World" />
-    
-    
-    <meta property="og:site_name" content="Miguel Tenant de La Tour's Blog">
-    <meta property="og:type" content="article">
-
+    <meta property="og:description" content="{{description}}" />
+    {# Add OpenGraph metadata #}
+    {% block og %}{% endblock %}
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <link rel="stylesheet" href="/css/main.css" />
-    
-    
-    <link rel="stylesheet" href="/css/blog.css" />
-
+    {# Add stylesheet #}
+    {% block style %}{% endblock %}
   </head>
 
   <body>
@@ -29,20 +24,15 @@
       <nav class="navbar">
         <div class="nav-links">
           <a href="/">Home</a>
-          <a href="/#work">Work</a>
+          <a href="{{ '#work' if type === 'index' else '/#work' }}">Work</a>
           <a href="/blog">Blog</a>
         </div>
       </nav>
     </header>
     <main>
-       
-    <section class="content full">
-        <h1 class="title">My Rad Blog</h1>
-        <p>Nothing to see here.</p>
-<p><a href="/">Go back home?</a></p>
-
-    </section>
-
+      {% block main %}
+        {{ content | safe }}
+      {% endblock %}
     </main>
     <script src="/js/helper.js"></script>
   </body>

@@ -13,10 +13,11 @@ module.exports = function (eleventyConfig) {
       output: 'docs'
     },
     templateFormats: [
+      "njk",
       "html",
       "md",
       "css",
-      "png"
+      "png",
     ]
   }
 }
