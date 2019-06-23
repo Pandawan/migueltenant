@@ -1,5 +1,10 @@
 # migueltenant.com
 
+## TODO
+
+- Fix navbar moving a tiny bit between index & blog
+- Add table of contents page for blog
+
 ## Dev
 
 Use `npm run start` to start a development HMR server.  
