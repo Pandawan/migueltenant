@@ -1,21 +1,7 @@
 /** Stylesheet for blog pages **/
 
-
 #article img {
     display: block;
     max-width: 100%;
-}
-
-/* Main Image */
-
-#article-image {
-    display: block;
     margin: 0 auto;
-    max-width: fit-content;
-}
-
-#article-image img {
-    object-fit: cover;
-    width: 100%;
-    max-height: 30em;
 }

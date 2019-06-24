@@ -1,4 +1,6 @@
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const pluginBetterSlug = require("@borisschapira/eleventy-plugin-better-slug");
+
 const optimizeImages = require('./tools/optimize-images');
 
 module.exports = function (eleventyConfig) {
@@ -6,6 +8,7 @@ module.exports = function (eleventyConfig) {
   optimizeImages();
 
   eleventyConfig.addPlugin(syntaxHighlight);
+  eleventyConfig.addPlugin(pluginBetterSlug);
   
   eleventyConfig.addPassthroughCopy("src/CNAME");
   eleventyConfig.addPassthroughCopy("src/js/");

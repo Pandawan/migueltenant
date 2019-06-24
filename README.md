@@ -3,8 +3,6 @@
 ## TODO
 
 - Stylize/organize `/blog` page
-- Add "main picture" to blog post that renders full-page
-- Test formatting of pictures and other markdown elements on blog post
 - Bump package version to 3.1.0
 
 ## Dev
