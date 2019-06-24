@@ -11,12 +11,26 @@
 <link rel="stylesheet" href="/css/blog.css" />
 {% endblock %}
 {% block main %} 
-<section class="container">
+<section>
     <article class="content" id="article">
-        <header id="article-title">
+        <header class="container" id="article-title">
             <h1 class="title">{{ title }}</h1>
         </header>
-        <section id="article-content">
+        {% if mainImage %}
+        <picture id="article-image">
+            {% if mainImage.webp %}
+            <source type="image/webp" srcset="{{ mainImage.webp }}">
+            {% endif %}
+            {% if mainImage.png %}
+            <source type="image/png" srcset="{{ mainImage.png }}">
+            {% endif %}
+            {% if mainImage.jpg %}
+            <source type="image/jpg" srcset="{{ mainImage.jpg }}">
+            {% endif %}
+            <img class="project-image" src="{{ mainImage.png if mainImage.png else mainImage.jpg }}" alt="" />
+        </picture>
+        {% endif %}
+        <section class="container" id="article-content">
             {{ content | safe }}
         </section>
     </article>
