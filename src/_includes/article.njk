@@ -1,21 +1,24 @@
 {% extends "default.njk" %}
 {% set type = 'article' %}
+{% set navTitle = "Miguel's Blog" %}
+{% set headTitle = title + ' | Miguel Tenant de La Tour' %}
 {% block og %}
-    <meta property="og:site_name" content="Miguel Tenant de La Tour's Blog">
-    <meta property="og:type" content="article">
+<meta property="og:site_name" content="Miguel Tenant de La Tour's Blog">
+<meta property="og:type" content="article">
 {% endblock %}
 {% block style %}
-    <link rel="stylesheet" href="/css/blog.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/themes/prism.min.css" integrity="sha256-77qGXu2p8NpfcBpTjw4jsMeQnz0vyh74f5do0cWjQ/Q=" crossorigin="anonymous" />
+<link rel="stylesheet" href="/css/blog.css" />
 {% endblock %}
 {% block main %} 
-    <section class="container">
-        <article class="content" id="article">
-            <header id="article-title">
-                <h1 class="title">{{ title }}</h1>
-            </header>
-            <section id="article-content">
-                {{ content | safe }}
-            </section>
-        </article>
-    </section>
+<section class="container">
+    <article class="content" id="article">
+        <header id="article-title">
+            <h1 class="title">{{ title }}</h1>
+        </header>
+        <section id="article-content">
+            {{ content | safe }}
+        </section>
+    </article>
+</section>
 {% endblock %}

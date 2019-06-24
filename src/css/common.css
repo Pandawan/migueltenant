@@ -32,6 +32,17 @@ a {
   max-width: 50rem;
 }
 
+.content {
+  font-size: 1.15rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .content {
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+}
+
 .full {
   width: 100%;
   text-align: center;
@@ -62,11 +73,47 @@ a {
 /* Navbar */
 .navbar {
   margin-top: 3em;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1em;
 }
+
+/* Index page does not show the name */
+.navbar.index {
+  justify-content: flex-end;
+}
+
+.navbar > * {
+  margin: 2em 0; 
+}
+
+.navbar > *:not(:first-child) {
+  margin-left: 2em;
+}
+
+.navbar > *:not(:last-child) {
+  margin-right: 2em;
+}
+
 
 @media only screen and (max-width: 768px) {
   .navbar {
-    margin-top: 2em;
+    /* Top: 2, left/right: 1, bottom: 0 */
+    margin: 2em 1em 0;
+  }
+
+  .navbar.index  {
+    justify-content: center;
+  }
+
+  .navbar > * {
+    margin: 1.5em 0;
+  }
+  .navbar > *:not(:first-child) {
+    margin-left: 1.5em;
+  }
+  .navbar > *:not(:last-child) {
+    margin-right: 1.5em;
   }
 }
 
@@ -74,16 +121,16 @@ a {
   .navbar {
     margin-top: 1.5em;
   }
-}
 
-.nav-links {
-  display: flex;
-  justify-content: flex-end;
-  margin: 2em;
-}
-
-.nav-links a {
-  font-size: 1em;
+  .navbar > * {
+    margin: 1em 0;
+  }
+  .navbar > *:not(:first-child) {
+    margin-left: 0.25em;
+  }
+  .navbar > *:not(:last-child) {
+    margin-right: 0.25em;
+  }
 }
 
 .nav-links a:not(:first-child) {
@@ -94,7 +141,51 @@ a {
   margin-right: 0.5em;
 }
 
+@media only screen and (max-width: 768px) {
+  .nav-links a:not(:first-child) {
+    margin-left: 0.35em;
+  }
+
+  .nav-links a:not(:last-child) {
+    margin-right: 0.35em;
+  }
+}
+
+@media only screen and (max-width: 374px) {
+  .nav-links a:not(:first-child) {
+    margin-left: 0.15em;
+  }
+
+  .nav-links a:not(:last-child) {
+    margin-right: 0.15em;
+  }
+}
+
 /* Main */
 main {
+  margin-top: 3em;
+}
+
+main.index {
   margin-top: 5em;
+}
+
+@media only screen and (max-width: 768px) {
+  main {
+    margin-top: 2em;
+  }
+  
+  main.index {
+    margin-top: 3em;
+  }
+}
+
+@media only screen and (max-width: 374px) {
+  main {
+    margin-top: 1em;
+  }
+
+  main.index {
+    margin-top: 2em;
+  }
 }

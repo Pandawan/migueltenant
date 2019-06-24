@@ -1,27 +1,25 @@
 {% extends "default.njk" %}
-{% set title = "Miguel's Blog" %}
 {% set type = 'blog' %}
+{% set navTitle = "Miguel's Blog" %}
+{% set headTitle = 'Blog | Miguel Tenant de La Tour' %}
 {% block og %}
-    <meta property="og:site_name" content="{{title}}">
+<meta property="og:site_name" content="{{title}}">
 {% endblock %}
 {% block style %}
-    <link rel="stylesheet" href="/css/blog.css" />
+<link rel="stylesheet" href="/css/blog.css" />
 {% endblock %}
 {% block main %} 
-    <section class="container" id="blog-home">
-        <header id="article-title">
-            <h1 class="big-title">{{ title }}</h1>
-        </header>
-        <div class="content">
-            <ul>
-                {%- for article in collections.article -%}
-                    <li>
-                        <a href="{{article.url}}">
-                            {{ article.data.title }}
-                        </a>
-                    </li>
-                {%- endfor -%}
-            </ul>
-        </div>
-    </section>
+<section class="container" id="blog-home">
+    <div class="content">
+        <ul>
+            {%- for article in collections.article -%}
+                <li>
+                    <a href="{{article.url}}">
+                        {{ article.data.title }}
+                    </a>
+                </li>
+            {%- endfor -%}
+        </ul>
+    </div>
+</section>
 {% endblock %}
