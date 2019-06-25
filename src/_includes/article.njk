@@ -11,14 +11,12 @@
 <link rel="stylesheet" href="/css/blog.css" />
 {% endblock %}
 {% block main %} 
-<section>
-    <article class="content" id="article">
-        <header class="container" id="article-title">
-            <h1 class="title">{{ title }}</h1>
-        </header>
-        <section class="container" id="article-content">
-            {{ content | safe }}
-        </section>
-    </article>
-</section>
+<article class="content" id="article">
+    <header class="container" id="article-title">
+        <h1 class="title">{{ title }}</h1>
+    </header>
+    <section class="container" id="article-content">
+        {{ content | safe }}
+    </section>
+</article>
 {% endblock %}
