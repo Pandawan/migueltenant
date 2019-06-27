@@ -103,7 +103,7 @@ p code {
 @media only screen and (max-width: 768px) {
   .navbar {
     /* Top: 1.5, left/right: 1, bottom: 0 */
-    margin: 1.5em 1em 0;
+    margin: 1em 1em 0;
   }
 
   .navbar.index  {
@@ -111,7 +111,7 @@ p code {
   }
 
   .navbar > * {
-    margin: 1.5em 0;
+    margin: 1em 0;
   }
   .navbar > *:not(:first-child) {
     margin-left: 1.5em;
@@ -168,10 +168,11 @@ p code {
 /* Main */
 main {
   margin-top: 3em;
+  margin-bottom: 3em;
 }
 
 main.index {
-  margin-top: 5em;
+  margin-top: 9em;
 }
 
 @media only screen and (max-width: 768px) {
@@ -180,7 +181,7 @@ main.index {
   }
   
   main.index {
-    margin-top: 3em;
+    margin-top: 2.5em;
   }
 }
 
@@ -190,6 +191,6 @@ main.index {
   }
 
   main.index {
-    margin-top: 2em;
+    margin-top: 1.5em;
   }
 }
