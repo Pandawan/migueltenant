@@ -6,6 +6,46 @@
 {% block style %}
 <link rel="stylesheet" href="/css/index.css" />
 {% endblock %}
+{% 
+  set projects = [
+    {
+      title: 'Sweep',
+      description: 'Clean up the environment with machine learning',
+      url: 'https://devpost.com/software/sweep-w79r26',
+      imageName: 'sweep'
+    },
+    {
+      title: 'Remove Slader Ads',
+      description: 'Remove the Slader ad wall in one click',
+      url: 'RemoveSladerAds/',
+      imageName: 'remove-slader-ads'
+    },
+    {
+      title: 'Garlic Recipes',
+      description: 'Get started with the Garlicoin cryptocurrency',
+      url: 'https://github.com/PandawanFr/GarlicRecipes',
+      imageName: 'garlic-recipes'
+    },
+    {
+      title: 'EasyGarlic',
+      description: 'Mine Garlicoin with ease',
+      url: 'https://github.com/PandawanFr/EasyGarlic2',
+      imageName: 'easy-garlic'
+    },
+    {
+      title: 'Minecraft Script',
+      description: 'Write Minecraft functions efficiently',
+      url: 'https://github.com/PandawanFr/mcs',
+      imageName: 'mcs'
+    },
+    {
+      title: 'MCBackup',
+      description: 'Backup your Minecraft worlds automagically',
+      url: 'https://www.minecraftforum.net/forums/mapping-and-modding-java-edition/minecraft-tools/2793894-backup-mcbackup-save-any-minecraft-world-with',
+      imageName: 'mcbackup'
+    }
+  ]
+%}
 {% block main %}
 <section class="container full" id="profile">
   <picture>
@@ -28,98 +68,23 @@
   <div class="container full">
     <h2 class="work-title">Some of my work...</h2>
   </div>
+  {% for project in projects %}
   <div class="full project">
     <h3 class="project-title">
-      <a href="https://devpost.com/software/sweep-w79r26">Sweep</a>
-      <p class="project-description">Clean up the environment with machine learning</p>
+      <a href="{{ project.url }}">{{ project.title }}</a>
+      <p class="project-description">{{ project.description }}</p>
     </h3>
     <div class="container project-image-container" aria-hidden="true" role="presentation">
-      <a href="https://devpost.com/software/sweep-w79r26">
+      <a href="{{ project.url }}">
         <picture>
-          <source type="image/webp" srcset="images/sweep.webp">
-          <source type="image/png" srcset="images/sweep.png">
-          <img class="project-image" src="images/sweep.png" alt="" />
+          <source type="image/webp" srcset="images/{{ project.imageName }}.webp">
+          <source type="image/png" srcset="images/{{ project.imageName }}.png">
+          <img class="project-image" src="images/{{ project.imageName }}.png" alt="" />
         </picture>
       </a>
     </div>
   </div>
-  <div class="full project">
-    <h3 class="project-title">
-      <a href="RemoveSladerAds/">Remove Slader Ads</a>
-      <p class="project-description">Remove the Slader ad wall</p>
-    </h3>
-    <div class="container project-image-container" aria-hidden="true" role="presentation">
-      <a href="RemoveSladerAds/">
-        <picture>
-          <source type="image/webp" srcset="images/remove-slader-ads.webp">
-          <source type="image/png" srcset="images/remove-slader-ads.png">
-          <img class="project-image" src="images/remove-slader-ads.png" alt="" />
-        </picture>
-      </a>
-    </div>
-  </div>
-  <div class="full project">
-    <h3 class="project-title">
-      <a href="https://github.com/PandawanFr/GarlicRecipes">Garlic Recipes</a>
-      <p class="project-description">Get help with Garlicoin</p>
-    </h3>
-    <div class="container project-image-container" aria-hidden="true" role="presentation">
-      <a href="https://github.com/PandawanFr/GarlicRecipes">
-        <picture>
-          <source type="image/webp" srcset="images/garlic-recipes.webp">
-          <source type="image/png" srcset="images/garlic-recipes.png">
-          <img class="project-image top" src="images/garlic-recipes.png" alt="" />
-        </picture>
-      </a>
-    </div>
-  </div>
-  <div class="full project">
-    <h3 class="project-title">
-      <a href="https://github.com/PandawanFr/EasyGarlic2">EasyGarlic</a>
-      <p class="project-description">Mine Garlicoin with ease</p>
-    </h3>
-    <div class="container project-image-container" aria-hidden="true" role="presentation">
-      <a href="https://github.com/PandawanFr/EasyGarlic2">
-        <picture>
-          <source type="image/webp" srcset="images/easy-garlic.webp">
-          <source type="image/png" srcset="images/easy-garlic.png">
-          <img class="project-image top" src="images/easy-garlic.png" alt="" />
-        </picture>
-      </a>
-    </div>
-  </div>
-  <div class="full project">
-    <h3 class="project-title">
-      <a href="https://github.com/PandawanFr/mcs">Minecraft Script</a>
-      <p class="project-description">Write Minecraft Functions efficiently</p>
-    </h3>
-    <div class="container project-image-container" aria-hidden="true" role="presentation">
-      <a href="https://github.com/PandawanFr/mcs">
-        <picture>
-          <source type="image/webp" srcset="images/mcs.webp">
-          <source type="image/png" srcset="images/mcs.png">
-          <img class="project-image top" src="images/mcs.png" alt="" />
-        </picture>
-      </a>
-    </div>
-  </div>
-  <div class="full project">
-    <h3 class="project-title">
-      <a
-        href="https://www.minecraftforum.net/forums/mapping-and-modding-java-edition/minecraft-tools/2793894-backup-mcbackup-save-any-minecraft-world-with">MCBackup</a>
-      <p class="project-description">Backup your Minecraft Worlds automagically</p>
-    </h3>
-    <div class="container project-image-container" aria-hidden="true" role="presentation">
-      <a
-        href="https://www.minecraftforum.net/forums/mapping-and-modding-java-edition/minecraft-tools/2793894-backup-mcbackup-save-any-minecraft-world-with">
-        <picture>
-          <source type="image/webp" srcset="images/mcbackup.webp">
-          <source type="image/png" srcset="images/mcbackup.png">
-          <img class="project-image top" src="images/mcbackup.png" alt="" />
-        </picture>
-      </a>
-    </div>
-  </div>
+  {% endfor %}
 </section>
 <section id="thank-you">
   <div class="container full">
