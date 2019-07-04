@@ -31,6 +31,10 @@ p code {
   display: none;
 }
 
+.center {
+  text-align: center;
+}
+
 .container {
   margin: 0 auto;
   max-width: 50rem;

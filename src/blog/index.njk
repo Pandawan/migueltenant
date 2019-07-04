@@ -6,20 +6,22 @@
 <meta property="og:site_name" content="{{title}}">
 {% endblock %}
 {% block style %}
+<link rel="stylesheet" href="https://unpkg.com/prism-theme-one-dark@1.0.0/prism-onedark.css" />
 <link rel="stylesheet" href="/css/blog.css" />
 {% endblock %}
 {% block main %} 
 <section class="container" id="blog-home">
     <div class="content">
-        <ul>
-            {%- for article in collections.article -%}
-                <li>
-                    <a href="{{article.url}}">
-                        {{ article.data.title }}
-                    </a>
-                </li>
-            {%- endfor -%}
-        </ul>
+        {%- for article in collections.article -%}
+            {% set content %}
+                {% excerpt article %}
+            {% endset %}
+            {% set footer %}
+                <div class="center"><a href="{{article.url}}">Read Article</a></div>
+            {% endset %}
+            {% from "article.njk" import articleGenerator %}
+            {{ articleGenerator(article.data.title, content, footer, article.url) }}
+        {%- endfor -%}
     </div>
 </section>
 {% endblock %}

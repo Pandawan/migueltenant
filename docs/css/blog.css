@@ -1,7 +1,21 @@
 /** Stylesheet for blog pages **/
 
-#article img {
+.go-back {
+    padding-top: 1.5em;
+}
+
+.article img {
     display: block;
     max-width: 100%;
     margin: 0 auto;
+}
+
+.article:not(:last-of-type) {
+    padding-bottom: 2em;
+}
+
+@media only screen and (max-width: 768px) {
+    .article:not(:last-of-type) {
+        padding-bottom: 1em;
+    }
 }

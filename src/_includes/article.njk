@@ -1,22 +1,28 @@
-{% extends "default.njk" %}
-{% set type = 'article' %}
-{% set navTitle = "Miguel's Blog" %}
-{% set headTitle = title + ' | Miguel Tenant de La Tour' %}
-{% block og %}
-<meta property="og:site_name" content="Miguel Tenant de La Tour's Blog">
-<meta property="og:type" content="article">
-{% endblock %}
-{% block style %}
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/themes/prism.min.css" integrity="sha256-77qGXu2p8NpfcBpTjw4jsMeQnz0vyh74f5do0cWjQ/Q=" crossorigin="anonymous" />
-<link rel="stylesheet" href="/css/blog.css" />
-{% endblock %}
-{% block main %} 
-<article class="content" id="article">
-    <header class="container" id="article-title">
+{# This is for an article's post, to be rendered wherever #}
+{% macro articleGenerator(title, content, footer, url) %}
+<article class="content article">
+    {% if title %}
+    <header class="container">
+        {% if url %}
+        <h1 class="title"><a href="{{ url }}">{{ title }}</a></h1>
+        {% else %}
         <h1 class="title">{{ title }}</h1>
+        {% endif %}
     </header>
-    <section class="container" id="article-content">
-        {{ content | safe }}
+    {% endif %}
+    {% if content %}
+    <section class="container">
+        {% block articleContent %}
+            {{ content | safe }}
+        {% endblock %}
     </section>
+    {% endif %}
+    {% if footer %}
+    <footer class="container">
+        {% block articleFooter %}
+            {{ footer | safe }}
+        {% endblock %}
+    </footer>
+    {% endif %}
 </article>
-{% endblock %}
+{% endmacro %}

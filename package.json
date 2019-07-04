@@ -21,6 +21,7 @@
     "@11ty/eleventy": "^0.8.3",
     "@11ty/eleventy-plugin-syntaxhighlight": "^2.0.3",
     "@borisschapira/eleventy-plugin-better-slug": "^1.0.1",
+    "eleventy-plugin-excerpt": "^1.1.1",
     "imagemin": "^6.1.0",
     "imagemin-webp": "^5.1.0",
     "serve": "^11.0.2"
