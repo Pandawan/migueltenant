@@ -8,7 +8,8 @@ module.exports = async function (input, output) {
     const outputPath = output || path.join(__dirname, '../docs/images');
     console.log(`Optimizing images from ${inputPath} to ${outputPath}.`);
 
-    await imagemin([inputPath], outputPath, {
+    await imagemin([inputPath], {
+      destination: outputPath,
       use: [
         imageminWebp({ quality: 100 })
       ]
