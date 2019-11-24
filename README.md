@@ -3,7 +3,6 @@
 ## TODO
 
 - Stylize/organize `/blog` page
-- Bump package version to 3.1.0
 
 ## Dev
 

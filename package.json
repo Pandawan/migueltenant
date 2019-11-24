@@ -1,6 +1,6 @@
 {
   "name": "migueltenant",
-  "version": "3.0.1",
+  "version": "3.1.0",
   "private": true,
   "description": "My website",
   "scripts": {
@@ -22,7 +22,7 @@
     "@11ty/eleventy-plugin-syntaxhighlight": "^2.0.3",
     "@borisschapira/eleventy-plugin-better-slug": "^1.0.1",
     "eleventy-plugin-excerpt": "^1.1.2",
-    "imagemin": "^7.0.0",
+    "imagemin": "^7.0.1",
     "imagemin-webp": "^5.1.0",
     "serve": "^11.2.0"
   }
