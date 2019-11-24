@@ -1,5 +1,26 @@
 /** Common Stylesheet for all pages **/
 
+html {
+  --font-title: 2rem;
+  --font-subtitle: 1.35rem;
+  --font-text: 1.25rem;
+}
+@media only screen and (max-width: 768px) {
+ html {
+   --font-title: 1.5rem;
+   --font-subtitle: 1.15rem;
+   --font-text: 1.15rem;
+ }
+}
+@media only screen and (max-width: 374px) {
+ html {
+   --font-title: 1.25rem;
+   --font-subtitle: 1rem;
+   --font-text: 1rem;
+ }
+}
+
+
 /* Fix for scrollbar moving content (https://stackoverflow.com/questions/6357870/scrollbar-on-browser-and-div-margin-0-auto-jumping) */
 html {
   width: 100vw;
@@ -17,8 +38,13 @@ body {
   margin: 0;
 }
 
+p {
+  color: grey;
+  font-size: var(--font-text);
+}
+
 a {
-  color: inherit;
+  color: rgb(0, 95, 191); /* 40 98 244 */
 }
 
 p code {
@@ -41,13 +67,13 @@ p code {
 }
 
 .content {
-  font-size: 1.15rem;
+  font-size: var(--font-text);
 }
 
 @media only screen and (max-width: 768px) {
   .content {
-    margin-left: 1em;
-    margin-right: 1em;
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
 }
 
@@ -56,47 +82,23 @@ p code {
   text-align: center;
 }
 
-.big-title {
-  font-size: 2.5em;
-  text-align: center;
-}
-
 .title {
-  font-size: 2em;
+  font-size: var(--font-title);
   text-align: center;
+  font-weight: bold;
 }
 
 .subtitle {
-  font-size: 1.25em;
+  font-size: var(--font-subtitle);
   text-align: center;
-}
-
-@media only screen and (max-width: 768px) {
-  .title {
-    font-size: 1.5em;
-  }
-  
-  .subtitle {
-    font-size: 1.15em;
-  }
-}
-
-@media only screen and (max-width: 374px) {
-  .title {
-    font-size: 1.25em;
-  }
-  
-  .subtitle {
-    font-size: 1em;
-  }
 }
 
 /* Navbar */
 .navbar {
-  margin-top: 1.5em;
+  margin-top: 1.5rem;
   display: flex;
   justify-content: space-between;
-  font-size: 1em;
+  font-size: var(--font-text);
 }
 
 /* Index page does not show the name */
@@ -105,109 +107,120 @@ p code {
 }
 
 .navbar > * {
-  margin: 2em 0; 
+  margin: 2rem 0;
 }
 
 .navbar > *:not(:first-child) {
-  margin-left: 2em;
+  margin-left: 2rem;
 }
 
 .navbar > *:not(:last-child) {
-  margin-right: 2em;
+  margin-right: 2rem;
+}
+
+@media only screen and (max-width: 1024px) {
+  .navbar .nav-links {
+    margin-right: 1rem;
+  }
 }
 
 
 @media only screen and (max-width: 768px) {
   .navbar {
     /* Top: 1.5, left/right: 1, bottom: 0 */
-    margin: 1em 1em 0;
+    margin: 1rem 1rem 0;
   }
-
+  
   .navbar.index  {
     justify-content: center;
   }
 
+  .navbar .nav-links {
+    margin-right: 0;
+  }
+
   .navbar > * {
-    margin: 1em 0;
+    margin: 1rem 0;
   }
   .navbar > *:not(:first-child) {
-    margin-left: 1.5em;
+    margin-left: 1.5rem;
   }
   .navbar > *:not(:last-child) {
-    margin-right: 1.5em;
+    margin-right: 1.5rem;
   }
 }
 
 @media only screen and (max-width: 374px) {
   .navbar {
-    margin-top: 1em;
+    margin-top: 1rem;
   }
 
   .navbar > * {
-    margin: 1em 0;
+    margin: 1rem 0;
   }
   .navbar > *:not(:first-child) {
-    margin-left: 0.25em;
+    margin-left: 0.25rem;
   }
   .navbar > *:not(:last-child) {
-    margin-right: 0.25em;
+    margin-right: 0.25rem;
   }
 }
 
 .nav-links a:not(:first-child) {
-  margin-left: 0.5em;
+  margin-left: 0.5rem;
 }
 
 .nav-links a:not(:last-child) {
-  margin-right: 0.5em;
+  margin-right: 0.5rem;
 }
 
 @media only screen and (max-width: 768px) {
   .nav-links a:not(:first-child) {
-    margin-left: 0.35em;
+    margin-left: 0.35rem;
   }
 
   .nav-links a:not(:last-child) {
-    margin-right: 0.35em;
+    margin-right: 0.35rem;
   }
 }
 
 @media only screen and (max-width: 374px) {
   .nav-links a:not(:first-child) {
-    margin-left: 0.15em;
+    margin-left: 0.15rem;
   }
 
   .nav-links a:not(:last-child) {
-    margin-right: 0.15em;
+    margin-right: 0.15rem;
   }
 }
 
 /* Main */
 main {
-  margin-top: 3em;
-  margin-bottom: 3em;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  font-size: var(--font-text);
 }
 
 main.index {
-  margin-top: 4em;
+  margin-top: 3rem;
 }
 
 @media only screen and (max-width: 768px) {
   main {
-    margin-top: 2em;
+    margin-top: 2rem;
   }
   
   main.index {
-    margin-top: 2.5em;
+    margin-top: 2.5rem;
   }
 }
 
 @media only screen and (max-width: 374px) {
   main {
-    margin-top: 1em;
+    margin-top: 1rem;
   }
 
   main.index {
-    margin-top: 1.5em;
+    margin-top: 1.5rem;
   }
 }

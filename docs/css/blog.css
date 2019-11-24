@@ -1,7 +1,7 @@
 /** Stylesheet for blog pages **/
 
 .go-back {
-    padding-top: 1.5em;
+    padding-top: 1.5rem;
 }
 
 .article img {
@@ -11,11 +11,11 @@
 }
 
 .article:not(:last-of-type) {
-    padding-bottom: 2em;
+    padding-bottom: 2rem;
 }
 
 @media only screen and (max-width: 768px) {
     .article:not(:last-of-type) {
-        padding-bottom: 1em;
+        padding-bottom: 1rem;
     }
 }
