@@ -2,6 +2,7 @@ const util = require('util');
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginBetterSlug = require("@borisschapira/eleventy-plugin-better-slug");
 const excerpt = require('eleventy-plugin-excerpt');
+const htmlmin = require("html-minifier");
 
 const optimizeImages = require('./tools/optimize-images');
 
@@ -18,6 +19,20 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addFilter("JsonStringify", function(value) {
     return util.inspect(value);
+  });
+
+  // Automatically minify output html files
+  eleventyConfig.addTransform("htmlmin", function(content, outputPath) {
+    if(outputPath.endsWith(".html")) {
+      let minified = htmlmin.minify(content, {
+        useShortDoctype: true,
+        removeComments: true,
+        collapseWhitespace: true
+      });
+      return minified;
+    }
+
+    return content;
   });
 
   return {
