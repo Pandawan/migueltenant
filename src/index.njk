@@ -78,8 +78,10 @@
     <div class="project-image-container" aria-hidden="true" role="presentation">
       <a href="{{ project.url }}">
         <picture>
-          <source type="image/webp" srcset="images/{{ project.imageName }}.webp">
-          <source type="image/png" srcset="images/{{ project.imageName }}.png">
+          <source type="image/webp" srcset="images/{{ project.imageName }}-small.webp 1x" media="(max-width: 768px)">
+          <source type="image/webp" srcset="images/{{ project.imageName }}.webp 2x" media="(min-width: 769px)">
+          <source type="image/png" srcset="images/{{ project.imageName }}-small.png 1x" media="(max-width: 768px)">
+          <source type="image/png" srcset="images/{{ project.imageName }}.png 2x" media="(min-width: 769px)">
           <img class="project-image" src="images/{{ project.imageName }}.png" alt="" />
         </picture>
       </a>

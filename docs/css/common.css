@@ -39,7 +39,7 @@ body {
 }
 
 p {
-  color: grey;
+  color: #747474;
   font-size: var(--font-text);
 }
 

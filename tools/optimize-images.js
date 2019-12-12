@@ -40,6 +40,13 @@ module.exports = async function(input, output) {
         image.png({ quality: 100 }).toFile(outputFilePath + ".png"),
         image.webp({ quality: 100 }).toFile(outputFilePath + ".webp")
       );
+
+      // Resize the image to 480x270 (but don't enlarge if already smaller)
+      image.resize(480, 270, { fit: "inside", withoutEnlargement: true });
+      operations.push(
+        image.png({ quality: 80 }).toFile(outputFilePath + "-small.png"),
+        image.webp({ quality: 80 }).toFile(outputFilePath + "-small.webp")
+      );
     }
 
     // Wait for all webp operations to finish
