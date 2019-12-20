@@ -9,7 +9,7 @@ const imageSizes = {
   },
   'profile-pic': {
     large: [256, 256],
-    small: [140, 140]
+    small: [150, 150]
   }
 }
 
