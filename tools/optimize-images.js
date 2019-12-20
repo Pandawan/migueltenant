@@ -2,6 +2,32 @@ const path = require("path");
 const glob = require("glob");
 const sharp = require("sharp");
 
+const imageSizes = {
+  default: {
+    large: [960, 540],
+    small: [480, 270]
+  },
+  'profile-pic': {
+    large: [256, 256],
+    small: [140, 140]
+  }
+}
+
+/**
+ * Gets the appropriate image sizing
+ * @param {string} imageName Name of the image
+ * @param {'large'|'small'} type The type of the image
+ * @returns {[number, number]} The given width, height
+ */
+function getImageSize(imageName, type) {
+  if (imageSizes[imageName] !== undefined) {
+    return imageSizes[imageName][type];
+  }
+  else {
+    return imageSizes.default[type];
+  }
+}
+
 /**
  * Optimize the given images into webp
  * @param {string=} input A glob of the images to convert from.
@@ -28,21 +54,20 @@ module.exports = async function(input, output) {
     const operations = [];
 
     // Loop through every file and convert to webp
-    for (const fileName of fileNames) {
-      const outputFilePath = path.join(
-        outputPath,
-        path.basename(fileName).replace(/\.[^/.]+$/, "")
-      );
+    for (const filePath of fileNames) {
+      const fileName = path.basename(filePath).replace(/\.[^/.]+$/, "");
 
-      // Resize the image to 960x540 (but don't enlarge if already smaller)
-      const image = sharp(fileName).resize(960, 540, { fit: "inside", withoutEnlargement: true });
+      const outputFilePath = path.join(outputPath, fileName);
+
+      // Resize the image to 960x540 (large) (but don't enlarge if already smaller)
+      const image = sharp(filePath).resize(...getImageSize(fileName, 'large'), { fit: "inside", withoutEnlargement: true });
       operations.push(
         image.png({ quality: 100 }).toFile(outputFilePath + ".png"),
         image.webp({ quality: 100 }).toFile(outputFilePath + ".webp")
       );
 
-      // Resize the image to 480x270 (but don't enlarge if already smaller)
-      image.resize(480, 270, { fit: "inside", withoutEnlargement: true });
+      // Resize the image to 480x270 (small) (but don't enlarge if already smaller)
+      image.resize(...getImageSize(fileName, 'small'), { fit: "inside", withoutEnlargement: true });
       operations.push(
         image.png({ quality: 80 }).toFile(outputFilePath + "-small.png"),
         image.webp({ quality: 80 }).toFile(outputFilePath + "-small.webp")
@@ -57,3 +82,4 @@ module.exports = async function(input, output) {
     console.error(`Error while optimizing images: ${error}`);
   }
 };
+
