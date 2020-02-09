@@ -1,53 +1,9 @@
 {% extends "default.njk" %}
-{% set type = 'index' %}
-{% set title = "Miguel Tenant de La Tour" %}
-{% set headTitle = "Miguel Tenant de La Tour" %}
-{% set description = "Hi, I'm an 18 year old student who loves web and game development." %}
 {% block style %}
 <link rel="stylesheet" href="/css/index.css" />
 {% endblock %}
-{% 
-  set projects = [
-    {
-      title: 'Sweep',
-      description: 'Clean up the environment with machine learning',
-      url: 'https://devpost.com/software/sweep-w79r26',
-      imageName: 'sweep'
-    },
-    {
-      title: 'Alleviair',
-      description: 'Cloud-based mapping for disaster response',
-      url: 'https://alleviair.herokuapp.com',
-      imageName: 'alleviair'
-    },
-    {
-      title: 'Garlic Recipes',
-      description: 'Get started with the Garlicoin cryptocurrency',
-      url: 'https://github.com/PandawanFr/GarlicRecipes',
-      imageName: 'garlic-recipes'
-    },
-    {
-      title: 'Pokemon Cobalt & Amethyst',
-      description: 'Critically acclaimed Pokémon adventure in Minecraft',
-      url: 'https://phnixprojects.com/pokeca/',
-      imageName: 'pokeca'
-    },
-    {
-      title: 'Minecraft Script',
-      description: 'Write Minecraft functions efficiently',
-      url: 'https://github.com/PandawanFr/mcs',
-      imageName: 'mcs'
-    },
-    {
-      title: 'MCBackup',
-      description: 'Backup your Minecraft worlds automagically',
-      url: 'https://www.minecraftforum.net/forums/mapping-and-modding-java-edition/minecraft-tools/2793894-backup-mcbackup-save-any-minecraft-world-with',
-      imageName: 'mcbackup'
-    }
-  ]
-%}
 {% block main %}
-<section class="container full" id="profile">
+<section class="container full center" id="profile">
   <picture>
     <source type="image/webp" srcset="images/profile-pic-small.webp 0.5x" media="(max-width: 768px)">
     <source type="image/webp" srcset="images/profile-pic.webp 1x" media="(min-width: 769px)">
@@ -55,24 +11,23 @@
     <source type="image/png" srcset="images/profile-pic.png 1x" media="(min-width: 769px)">
     <img class="picture" src="images/profile-pic.png" alt="" />
   </picture>
-  <h1 class="title">Miguel Tenant de La Tour</h1>
-  <a class="subtitle" href="mailto:migueltenant@gmail.com">migueltenant@gmail.com</a>
+  <h1 class="title center bold">{{ navTitle }}</h1>
+  <a class="subtitle center" href="mailto:migueltenant@gmail.com">migueltenant@gmail.com</a>
 </section>
-<section class="container full" id="summary">
+<section class="container full center" id="summary">
   <p>{{description}}</p>
   <div id="contact">
-    <a href="https://docs.google.com/document/d/1Toj0yawmd6Q0mNUubzn1Vxf5t4hp5KJHGaaDo-Rwgcg/export?format=pdf">Resume</a>
-    <a href="https://linkedin.com/in/migueltenant">LinkedIn</a>
-    <a href="https://github.com/PandawanFr">GitHub</a>
-    <a href="https://devpost.com/MiguelTenant">Hackathons</a>
+    {% for contact in contacts %}
+      <a href="{{ contact.url }}">{{ contact.title }}</a>
+    {% endfor %}
   </div>
 </section>
 <section id="work">
-  <div class="container full">
+  <div class="container full center">
     <h2 class="work-title">Some of my work...</h2>
   </div>
   {% for project in projects %}
-  <div class="full project">
+  <div class="full center project">
     <h3 class="project-title">
       <a href="{{ project.url }}">{{ project.title }}</a>
       <p class="project-description">{{ project.description }}</p>
@@ -92,7 +47,7 @@
   {% endfor %}
 </section>
 <section id="thank-you">
-  <div class="container full">
+  <div class="container full center">
     <p>Thank you for checking out my projects!</p>
     <p>Contact me at <a href="mailto:migueltenant@gmail.com">migueltenant@gmail.com</a>.</p>
   </div>

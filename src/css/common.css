@@ -5,6 +5,7 @@ html {
   --font-subtitle: 1.35rem;
   --font-text: 1.25rem;
 }
+
 @media only screen and (max-width: 768px) {
  html {
    --font-title: 1.5rem;
@@ -12,6 +13,7 @@ html {
    --font-text: 1.15rem;
  }
 }
+
 @media only screen and (max-width: 374px) {
  html {
    --font-title: 1.25rem;
@@ -57,6 +59,12 @@ p code {
   display: none;
 }
 
+@media only screen and (max-width: 768px) {
+  .hidden-mobile {
+    display: none;
+  }
+}
+
 .center {
   text-align: center;
 }
@@ -79,18 +87,20 @@ p code {
 
 .full {
   width: 100%;
-  text-align: center;
 }
 
 .title {
   font-size: var(--font-title);
-  text-align: center;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 .subtitle {
   font-size: var(--font-subtitle);
-  text-align: center;
+  font-weight: normal;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 /* Navbar */
@@ -117,13 +127,6 @@ p code {
 .navbar > *:not(:last-child) {
   margin-right: 2rem;
 }
-
-@media only screen and (max-width: 1024px) {
-  .navbar .nav-links {
-    margin-right: 1rem;
-  }
-}
-
 
 @media only screen and (max-width: 768px) {
   .navbar {

@@ -1,12 +1,17 @@
 {# This is for an article's post, to be rendered wherever #}
-{% macro articleGenerator(title, content, footer, url) %}
-<article class="content article">
-    {% if title %}
+{% macro articleGenerator(title, sub, content, footer, url) %}
+<article class="article">
+    {% if (title or sub) %}
     <header class="container">
-        {% if url %}
-        <h1 class="title"><a href="{{ url }}">{{ title }}</a></h1>
-        {% else %}
-        <h1 class="title">{{ title }}</h1>
+        {% if title %}
+            {% if url %}
+            <h1 class="title"><a href="{{ url }}">{{ title }}</a></h1>
+            {% else %}
+            <h1 class="title">{{ title }}</h1>
+            {% endif %}
+        {% endif %} 
+        {% if sub %}
+            <p class="sub">{{ sub }}</p>
         {% endif %}
     </header>
     {% endif %}

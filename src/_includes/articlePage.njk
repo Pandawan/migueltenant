@@ -1,20 +1,22 @@
 {# This is for an article's singular page by itself #}
 {% extends "default.njk" %}
 {% set type = 'article' %}
-{% set navTitle = "Miguel's Blog" %}
-{% set headTitle = title + ' | Miguel Tenant de La Tour' %}
+{% set navTitle = blog.navTitle %}
+{% set headTitle = title + ' | ' + blog.headTitle %}
 {% block og %}
-<meta property="og:site_name" content="Miguel Tenant de La Tour's Blog">
+<meta property="og:site_name" content="{{ navTitle }}">
 <meta property="og:type" content="article">
 {% endblock %}
 {% block style %}
-<link rel="stylesheet" href="https://unpkg.com/prism-theme-one-dark@1.0.0/prism-onedark.css" />
+<link rel="stylesheet" href="https://unpkg.com/prism-theme-one-dark/prism-onedark.css" />
 <link rel="stylesheet" href="/css/blog.css" />
 {% endblock %}
 {% block main %}
+<div class="content">
 {% from "article.njk" import articleGenerator %}
 {% set footer %}
     <div class="center go-back"><a href="/blog">Back to blog</a></div>
 {% endset %}
-{{ articleGenerator(title, content, footer) }}
+{{ articleGenerator(title, date | dateFormat, content, footer) }}
+</div>
 {% endblock %}

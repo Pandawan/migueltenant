@@ -6,6 +6,9 @@ const htmlmin = require("html-minifier");
 
 const optimizeImages = require('./tools/optimize-images');
 
+/**
+ * @param {import('@11ty/eleventy/src/EleventyConfig')} eleventyConfig Test
+ */
 module.exports = function (eleventyConfig) {
   // Optimize all of the images automatically into webp
   optimizeImages();
@@ -19,6 +22,17 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addFilter("JsonStringify", function(value) {
     return util.inspect(value);
+  });
+
+  eleventyConfig.addFilter("dateFormat", function(date) {
+    var monthNames = [
+      "January", "February", "March",
+      "April", "May", "June", "July",
+      "August", "September", "October",
+      "November", "December"
+    ];
+
+    return `${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
   });
 
   // Automatically minify output html files

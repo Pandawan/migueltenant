@@ -1,0 +1,62 @@
+{
+  "type": "index",
+  "navTitle": "Miguel Tenant de La Tour",
+  "headTitle": "Miguel Tenant de La Tour",
+  "description": "Hi, I'm an 18 year old student who loves web and game development.",
+  "contacts": [
+    {
+      "title": "Resume",
+      "url": "https://docs.google.com/document/d/1Toj0yawmd6Q0mNUubzn1Vxf5t4hp5KJHGaaDo-Rwgcg/export?format=pdf"
+    },
+    {
+      "title": "LinkedIn",
+      "url": "https://linkedin.com/in/migueltenant"
+    },
+    {
+      "title": "GitHub",
+      "url": "https://github.com/PandawanFr"
+    },
+    {
+      "title": "Hackathons",
+      "url": "https://devpost.com/MiguelTenant"
+    }
+  ],
+  "projects": [
+    {
+      "title": "Sweep",
+      "description": "Clean up the environment with machine learning",
+      "url": "https://devpost.com/software/sweep-w79r26",
+      "imageName": "sweep"
+    },
+    {
+      "title": "Alleviair",
+      "description": "Cloud-based mapping for disaster response",
+      "url": "https://alleviair.herokuapp.com",
+      "imageName": "alleviair"
+    },
+    {
+      "title": "Garlic Recipes",
+      "description": "Get started with the Garlicoin cryptocurrency",
+      "url": "https://github.com/PandawanFr/GarlicRecipes",
+      "imageName": "garlic-recipes"
+    },
+    {
+      "title": "Pokemon Cobalt & Amethyst",
+      "description": "Critically acclaimed Pokémon adventure in Minecraft",
+      "url": "https://phnixprojects.com/pokeca/",
+      "imageName": "pokeca"
+    },
+    {
+      "title": "Minecraft Script",
+      "description": "Write Minecraft functions efficiently",
+      "url": "https://github.com/PandawanFr/mcs",
+      "imageName": "mcs"
+    },
+    {
+      "title": "MCBackup",
+      "description": "Backup your Minecraft worlds automagically",
+      "url": "https://www.minecraftforum.net/forums/mapping-and-modding-java-edition/minecraft-tools/2793894-backup-mcbackup-save-any-minecraft-world-with",
+      "imageName": "mcbackup"
+    }
+  ]
+}

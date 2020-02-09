@@ -4,10 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
-    <title>{{headTitle}}</title>
+    <title>{{ headTitle if headTitle else defaults.headTitle }}</title>
     <meta name="description" content="{{description}}" />
 
-    <meta property="og:title" content={{headTitle}} />
+    <meta property="og:title" content="{{headTitle}}" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:description" content="{{description}}" />
     {# Add OpenGraph metadata #}
@@ -23,13 +23,13 @@
       <nav class="navbar {{ 'index' if type === 'index' }}">
         {% if type !== 'index' %}
         <div class="nav-title">
-          {{ navTitle if navTitle else 'Miguel Tenant de La Tour' }}
+          {{ navTitle if navTitle else defaults.navTitle }}
         </div>
         {% endif %}
         <div class="nav-links">
           <a href="/">Home</a>
-          <a href="{{ '#work' if type === 'index' else '/#work' }}">Work</a>
-          <!-- <a href="/blog">Blog</a> -->
+          <a class="{{ 'hidden-mobile' if type !== 'index' }}" href="{{ '#work' if type === 'index' else '/#work' }}">Work</a>
+          <a href="/blog">Blog</a>
         </div>
       </nav>
     </header>

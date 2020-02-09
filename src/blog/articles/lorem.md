@@ -3,6 +3,7 @@ layout: articlePage
 title: Lorem
 description: Lorem ipsum dolor sit amet
 tags: article
+date: 2020-02-08
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eget dictum lectus. Pellentesque eget dignissim sem, vel porta urna. Donec id ante elementum, ultricies libero id, luctus arcu. Vivamus vitae cursus orci. Etiam ac commodo ante. Vestibulum a enim faucibus massa tincidunt aliquet a nec nisl. Fusce congue nibh in mauris interdum, eu ornare turpis dapibus. Quisque at consectetur leo. Quisque sit amet dignissim lorem. Vestibulum egestas massa et posuere efficitur. Sed augue felis, egestas feugiat luctus ac, volutpat blandit elit.

@@ -1,26 +1,23 @@
 {% extends "default.njk" %}
 {% set type = 'blog' %}
-{% set navTitle = "Miguel's Blog" %}
-{% set headTitle = 'Blog | Miguel Tenant de La Tour' %}
+{% set navTitle = blog.navTitle %}
+{% set headTitle = blog.headTitle %}
 {% block og %}
-<meta property="og:site_name" content="{{title}}">
+<meta property="og:site_name" content="{{ navTitle }}">
 {% endblock %}
 {% block style %}
 <link rel="stylesheet" href="https://unpkg.com/prism-theme-one-dark@1.0.0/prism-onedark.css" />
 <link rel="stylesheet" href="/css/blog.css" />
 {% endblock %}
-{% block main %} 
+{% block main %}
 <section class="container" id="blog-home">
     <div class="content">
         {%- for article in collections.article -%}
             {% set content %}
-                {% excerpt article %}
-            {% endset %}
-            {% set footer %}
-                <div class="center"><a href="{{article.url}}">Read Article</a></div>
+                <p class="description">{{ article.data.description }}<p>
             {% endset %}
             {% from "article.njk" import articleGenerator %}
-            {{ articleGenerator(article.data.title, content, footer, article.url) }}
+            {{ articleGenerator(article.data.title, article.data.date | dateFormat, content, undefined, article.url) }}
         {%- endfor -%}
     </div>
 </section>
