@@ -2,6 +2,7 @@
 {% extends "default.njk" %}
 {% set type = 'article' %}
 {% set navTitle = blog.navTitle %}
+{% set navUrl = '/blog' %}
 {% set headTitle = title + ' | ' + blog.headTitle %}
 {% block og %}
 <meta property="og:site_name" content="{{ navTitle }}">
@@ -15,7 +16,7 @@
 <div class="content">
 {% from "article.njk" import articleGenerator %}
 {% set footer %}
-    <div class="center go-back"><a href="/blog">Back to blog</a></div>
+    <div class="center go-back"><a href="/blog">See more posts</a></div>
 {% endset %}
 {{ articleGenerator(title, date | dateFormat, content, footer) }}
 </div>

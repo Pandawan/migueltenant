@@ -23,13 +23,17 @@
       <nav class="navbar {{ 'index' if type === 'index' }}">
         {% if type !== 'index' %}
         <div class="nav-title important">
-          {{ navTitle if navTitle else defaults.navTitle }}
+          {% if navUrl %}
+            <a href="{{navUrl}}">{{ navTitle if navTitle else defaults.navTitle }}</a>
+          {% else %}
+            {{ navTitle if navTitle else defaults.navTitle }}
+          {% endif %}
         </div>
         {% endif %}
         <div class="nav-links">
           <a href="/">Home</a>
           <a class="{{ 'hidden-mobile' if type !== 'index' }}" href="{{ '#work' if type === 'index' else '/#work' }}">Work</a>
-          <a href="/blog">Blog</a>
+          <!-- <a href="/blog">Blog</a> -->
         </div>
       </nav>
     </header>

@@ -37,11 +37,15 @@
 }
 
 .article .description {
-    margin: 0.75rem 0;
+  margin: 0.25rem 0;
+}
+
+.article section {
+  line-height: 1.75;
 }
 
 .article:not(:last-of-type) {
-  padding-bottom: 2rem;
+  padding-bottom: 1.5rem;
 }
 
 @media only screen and (max-width: 768px) {
