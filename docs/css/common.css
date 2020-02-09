@@ -4,6 +4,22 @@ html {
   --font-title: 2rem;
   --font-subtitle: 1.35rem;
   --font-text: 1.25rem;
+
+  --color-background: #fcfcfc;
+  --color-background-code: #282c34;
+  --color-text-important: #333;
+  --color-text: #747474;
+  --color-link: #005FBF;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    --color-background: #282c34; /* #242424 */
+    --color-background-code: #21252b;
+    --color-text-important: #fff;
+    --color-text: #fcfcfc;
+    --color-link: #0091ff;
+  }
 }
 
 @media only screen and (max-width: 768px) {
@@ -22,7 +38,6 @@ html {
  }
 }
 
-
 /* Fix for scrollbar moving content (https://stackoverflow.com/questions/6357870/scrollbar-on-browser-and-div-margin-0-auto-jumping) */
 html {
   width: 100vw;
@@ -34,23 +49,18 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: "Montserrat", sans-serif;
-  color: #333;
-  background-color: #fcfcfc;
+  background-color: var(--color-background);
   padding: 0;
   margin: 0;
 }
 
 p {
-  color: #747474;
+  color: var(--color-text);
   font-size: var(--font-text);
 }
 
 a {
-  color: rgb(0, 95, 191); /* 40 98 244 */
-}
-
-p code {
-  background: #f5f2f0;
+  color: var(--color-link); /* 40 98 244 */
 }
 
 /* Generic */
@@ -89,18 +99,25 @@ p code {
   width: 100%;
 }
 
+.important {
+  color: var(--color-text-important);
+}
+
 .title {
   font-size: var(--font-title);
+  color: var(--color-text-important);
   font-weight: 500;
 }
 
 .subtitle {
   font-size: var(--font-subtitle);
+  color: var(--color-text-important);
   font-weight: normal;
 }
 
 .bold {
   font-weight: bold;
+  color: var(--color-text-important);
 }
 
 /* Navbar */
