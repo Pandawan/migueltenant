@@ -23,6 +23,12 @@
   ],
   "projects": [
     {
+      "title": "Waitless",
+      "description": "Optimizing the hospital waiting experience.",
+      "url": "https://devpost.com/software/test-jrqbek",
+      "imageName": "waitless"
+    },
+    {
       "title": "Sweep",
       "description": "Clean up the environment with machine learning",
       "url": "https://devpost.com/software/sweep-w79r26",
@@ -51,12 +57,6 @@
       "description": "Write Minecraft functions efficiently",
       "url": "https://github.com/PandawanFr/mcs",
       "imageName": "mcs"
-    },
-    {
-      "title": "MCBackup",
-      "description": "Backup your Minecraft worlds automagically",
-      "url": "https://www.minecraftforum.net/forums/mapping-and-modding-java-edition/minecraft-tools/2793894-backup-mcbackup-save-any-minecraft-world-with",
-      "imageName": "mcbackup"
     }
   ]
 }
