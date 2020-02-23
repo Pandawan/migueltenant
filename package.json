@@ -21,11 +21,12 @@
     "@11ty/eleventy": "^0.10.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.1",
     "@borisschapira/eleventy-plugin-better-slug": "^1.0.1",
+    "clean-css": "^4.2.3",
     "eleventy-plugin-excerpt": "^1.1.2",
     "glob": "^7.1.6",
     "html-minifier": "^4.0.0",
     "serve": "^11.3.0",
-    "sharp": "^0.24.0"
+    "sharp": "^0.24.1"
   },
   "dependencies": {}
 }

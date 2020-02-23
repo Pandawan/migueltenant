@@ -5,6 +5,7 @@ const excerpt = require('eleventy-plugin-excerpt');
 const htmlmin = require("html-minifier");
 
 const optimizeImages = require('./tools/optimize-images');
+const optimizeCSS = require('./tools/optimize-css');
 
 /**
  * @param {import('@11ty/eleventy/src/EleventyConfig')} eleventyConfig Test
@@ -12,6 +13,8 @@ const optimizeImages = require('./tools/optimize-images');
 module.exports = function (eleventyConfig) {
   // Optimize all of the images automatically into webp
   optimizeImages();
+  // Optimize all of the css automatically
+  optimizeCSS();
 
   eleventyConfig.addPlugin(syntaxHighlight);
   eleventyConfig.addPlugin(pluginBetterSlug);
@@ -58,7 +61,6 @@ module.exports = function (eleventyConfig) {
       "njk",
       "html",
       "md",
-      "css",
     ]
   }
 }
