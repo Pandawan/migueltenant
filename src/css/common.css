@@ -48,7 +48,7 @@ html,
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Inter", sans-serif;
   background-color: var(--color-background);
   padding: 0;
   margin: 0;
@@ -113,11 +113,11 @@ a {
 .subtitle {
   font-size: var(--font-subtitle);
   color: var(--color-text-important);
-  font-weight: normal;
+  font-weight: 400;
 }
 
 .bold {
-  font-weight: bold;
+  font-weight: 700;
   color: var(--color-text-important);
 }
 
