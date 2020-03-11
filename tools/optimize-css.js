@@ -1,6 +1,6 @@
 const path = require("path");
 const glob = require("glob");
-const fs = require("fs").promises;
+const fse = require('fs-extra');
 const CleanCSS = require('clean-css');
 
 /**
@@ -17,6 +17,8 @@ module.exports = async function(input, output) {
       ? path.normalize(output)
       : path.join(__dirname, "../docs/css");
     console.log(`Optimizing css from ${inputPath} to ${outputPath}.`);
+
+    await fse.ensureDir(outputPath);
 
     // Get all filenames from input glob
     const fileNames = await new Promise((resolve, reject) => {
@@ -37,9 +39,9 @@ module.exports = async function(input, output) {
       const outputFilePath = path.join(outputPath, path.basename(filePath));
 
       const operation = async () => {
-        const fileInput = await fs.readFile(filePath, { encoding: 'utf8' });
+        const fileInput = await fse.readFile(filePath, { encoding: 'utf8' });
         const output = await cleanCSS.minify(fileInput);
-        await fs.writeFile(outputFilePath, output.styles);
+        await fse.writeFile(outputFilePath, output.styles);
       };
 
       operations.push(operation());

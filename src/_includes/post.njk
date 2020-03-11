@@ -1,6 +1,6 @@
-{# This is for an article's post, to be rendered wherever #}
-{% macro articleGenerator(title, sub, content, footer, url) %}
-<article class="article">
+{# This is for an post's post, to be rendered wherever #}
+{% macro postGenerator(title, sub, content, footer, url) %}
+<article class="post">
     {% if (title or sub) %}
     <header class="container">
         {% if title %}
@@ -17,14 +17,14 @@
     {% endif %}
     {% if content %}
     <section class="container">
-        {% block articleContent %}
+        {% block postContent %}
             {{ content | safe }}
         {% endblock %}
     </section>
     {% endif %}
     {% if footer %}
     <footer class="container">
-        {% block articleFooter %}
+        {% block postFooter %}
             {{ footer | safe }}
         {% endblock %}
     </footer>

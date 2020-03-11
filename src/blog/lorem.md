@@ -1,8 +1,8 @@
 ---
-layout: articlePage
+layout: postPage
 title: Lorem
 description: Lorem ipsum dolor sit amet
-tags: article
+tags: post
 date: 2020-02-08
 ---
 

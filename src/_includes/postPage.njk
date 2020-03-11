@@ -1,12 +1,12 @@
-{# This is for an article's singular page by itself #}
+{# This is for an post's singular page by itself #}
 {% extends "default.njk" %}
-{% set type = 'article' %}
+{% set type = 'post' %}
 {% set navTitle = blog.navTitle %}
 {% set navUrl = '/blog' %}
 {% set headTitle = title + ' | ' + blog.headTitle %}
 {% block og %}
 <meta property="og:site_name" content="{{ navTitle }}">
-<meta property="og:type" content="article">
+<meta property="og:type" content="post">
 {% endblock %}
 {% block style %}
 <link rel="stylesheet" href="/css/prism-onedark.css" />
@@ -14,10 +14,10 @@
 {% endblock %}
 {% block main %}
 <div class="content">
-{% from "article.njk" import articleGenerator %}
+{% from "post.njk" import postGenerator %}
 {% set footer %}
     <div class="center go-back"><a href="/blog">See more posts</a></div>
 {% endset %}
-{{ articleGenerator(title, date | dateFormat, content, footer) }}
+{{ postGenerator(title, date | dateFormat, content, footer) }}
 </div>
 {% endblock %}

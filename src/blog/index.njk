@@ -13,12 +13,12 @@
 {% block main %}
 <section class="container" id="blog-home">
     <div class="content">
-        {%- for article in collections.article -%}
+        {%- for post in collections.post -%}
             {% set content %}
-                <p class="description">{{ article.data.description }}<p>
+                <p class="description">{{ post.data.description }}<p>
             {% endset %}
-            {% from "article.njk" import articleGenerator %}
-            {{ articleGenerator(article.data.title, article.data.date | dateFormat, content, undefined, article.url) }}
+            {% from "post.njk" import postGenerator %}
+            {{ postGenerator(post.data.title, post.data.date | dateFormat, content, undefined, post.url) }}
         {%- endfor -%}
     </div>
 </section>

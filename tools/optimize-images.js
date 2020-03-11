@@ -1,6 +1,7 @@
 const path = require("path");
 const glob = require("glob");
 const sharp = require("sharp");
+const fse = require('fs-extra');
 
 const imageSizes = {
   default: {
@@ -42,6 +43,8 @@ module.exports = async function(input, output) {
       ? path.normalize(output)
       : path.join(__dirname, "../docs/images");
     console.log(`Optimizing images from ${inputPath} to ${outputPath}.`);
+
+    await fse.ensureDir(outputPath);
 
     // Get all filenames from input glob
     const fileNames = await new Promise((resolve, reject) => {

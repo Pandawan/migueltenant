@@ -1,8 +1,8 @@
 ---
-layout: articlePage
+layout: postPage
 title: Random page
 description: Hello World
-tags: article
+tags: post
 date: 2020-02-08
 ---
 
