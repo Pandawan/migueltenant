@@ -34,6 +34,7 @@
 #summary>* {
   margin-top: 0.1rem;
   margin-bottom: 0.1rem;
+  color: var(--color-text-extra);
 }
 
 @media only screen and (max-width: 768px) {
@@ -102,7 +103,7 @@
 
 .project-title {
   margin-bottom: 0.75rem;
-  font-size: var(--font-text);
+  font-size: var(--font-subtitle);
   font-weight: 500;
 }
 

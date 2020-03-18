@@ -1,18 +1,18 @@
 const path = require("path");
 const glob = require("glob");
 const sharp = require("sharp");
-const fse = require('fs-extra');
+const fse = require("fs-extra");
 
 const imageSizes = {
   default: {
     large: [960, 540],
     small: [480, 270]
   },
-  'profile-pic': {
+  "profile-pic": {
     large: [256, 256],
     small: [150, 150]
   }
-}
+};
 
 /**
  * Gets the appropriate image sizing
@@ -23,8 +23,7 @@ const imageSizes = {
 function getImageSize(imageName, type) {
   if (imageSizes[imageName] !== undefined) {
     return imageSizes[imageName][type];
-  }
-  else {
+  } else {
     return imageSizes.default[type];
   }
 }
@@ -63,14 +62,20 @@ module.exports = async function(input, output) {
       const outputFilePath = path.join(outputPath, fileName);
 
       // Resize the image to 960x540 (large) (but don't enlarge if already smaller)
-      const image = sharp(filePath).resize(...getImageSize(fileName, 'large'), { fit: "inside", withoutEnlargement: true });
+      const image = sharp(filePath).resize(...getImageSize(fileName, "large"), {
+        fit: "inside",
+        withoutEnlargement: true
+      });
       operations.push(
         image.png({ quality: 100 }).toFile(outputFilePath + ".png"),
         image.webp({ quality: 100 }).toFile(outputFilePath + ".webp")
       );
 
       // Resize the image to 480x270 (small) (but don't enlarge if already smaller)
-      image.resize(...getImageSize(fileName, 'small'), { fit: "inside", withoutEnlargement: true });
+      image.resize(...getImageSize(fileName, "small"), {
+        fit: "inside",
+        withoutEnlargement: true
+      });
       operations.push(
         image.png({ quality: 80 }).toFile(outputFilePath + "-small.png"),
         image.webp({ quality: 80 }).toFile(outputFilePath + "-small.webp")
@@ -85,4 +90,3 @@ module.exports = async function(input, output) {
     console.error(`Error while optimizing images: ${error}`);
   }
 };
-

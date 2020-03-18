@@ -33,8 +33,8 @@
         {% endif %}
         <div class="nav-links">
           <a href="/">Home</a>
-          <a class="{{ 'hidden-mobile' if type !== 'index' }}" href="{{ '#work' if type === 'index' else '/#work' }}">Work</a>
-          <!-- <a href="/blog">Blog</a> -->
+          <a href="{{ '#work' if type === 'index' else '/#work' }}">Work</a>
+          <a href="/blog">Blog</a>
         </div>
       </nav>
     </header>

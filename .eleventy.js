@@ -1,25 +1,31 @@
-const util = require('util');
+const util = require("util");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginBetterSlug = require("@borisschapira/eleventy-plugin-better-slug");
-const excerpt = require('eleventy-plugin-excerpt');
+const excerpt = require("eleventy-plugin-excerpt");
 const htmlmin = require("html-minifier");
 
-const optimizeImages = require('./tools/optimize-images');
-const optimizeCSS = require('./tools/optimize-css');
+const optimizeImages = require("./tools/optimize-images");
+const optimizeCSS = require("./tools/optimize-css");
+
+const devMode = process.argv.includes("--serve");
 
 /**
  * @param {import('@11ty/eleventy/src/EleventyConfig')} eleventyConfig Test
  */
-module.exports = function (eleventyConfig) {
+module.exports = function(eleventyConfig) {
   // Optimize all of the images automatically into webp
   optimizeImages();
-  // Optimize all of the css automatically
-  optimizeCSS();
+
+  // Only optimize CSS if dev mode
+  if (devMode == false) {
+    // Optimize all of the css automatically
+    optimizeCSS();
+  }
 
   eleventyConfig.addPlugin(syntaxHighlight);
   eleventyConfig.addPlugin(pluginBetterSlug);
   eleventyConfig.addPlugin(excerpt);
-  
+
   eleventyConfig.addPassthroughCopy("src/CNAME");
   eleventyConfig.addPassthroughCopy("src/js/");
 
@@ -29,38 +35,51 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addFilter("dateFormat", function(date) {
     var monthNames = [
-      "January", "February", "March",
-      "April", "May", "June", "July",
-      "August", "September", "October",
-      "November", "December"
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
     ];
 
-    return `${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
+    return `${
+      monthNames[date.getMonth()]
+    } ${date.getDate()}, ${date.getFullYear()}`;
   });
 
   // Automatically minify output html files
   eleventyConfig.addTransform("htmlmin", function(content, outputPath) {
-    if(outputPath.endsWith(".html")) {
-      let minified = htmlmin.minify(content, {
-        useShortDoctype: true,
-        removeComments: true,
-        collapseWhitespace: true
-      });
-      return minified;
+    if (devMode == false) {
+      if (outputPath.endsWith(".html")) {
+        let minified = htmlmin.minify(content, {
+          useShortDoctype: true,
+          removeComments: true,
+          collapseWhitespace: true
+        });
+        return minified;
+      }
     }
 
     return content;
   });
 
+  const formats = ["njk", "html", "md"];
+
+  // Do not optimize CSS if dev mode, want to watch for them
+  if (devMode) formats.push("css");
+
   return {
     dir: {
-      input: 'src',
-      output: 'docs'
+      input: "src",
+      output: "docs"
     },
-    templateFormats: [
-      "njk",
-      "html",
-      "md",
-    ]
-  }
-}
+    templateFormats: formats
+  };
+};

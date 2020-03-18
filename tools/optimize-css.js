@@ -1,7 +1,7 @@
 const path = require("path");
 const glob = require("glob");
-const fse = require('fs-extra');
-const CleanCSS = require('clean-css');
+const fse = require("fs-extra");
+const CleanCSS = require("clean-css");
 
 /**
  * Optimize the given images into webp
@@ -33,20 +33,20 @@ module.exports = async function(input, output) {
     });
 
     const operations = [];
-    
+
     // Loop through every file and minify them
     for (const filePath of fileNames) {
       const outputFilePath = path.join(outputPath, path.basename(filePath));
 
       const operation = async () => {
-        const fileInput = await fse.readFile(filePath, { encoding: 'utf8' });
+        const fileInput = await fse.readFile(filePath, { encoding: "utf8" });
         const output = await cleanCSS.minify(fileInput);
         await fse.writeFile(outputFilePath, output.styles);
       };
 
       operations.push(operation());
     }
-    
+
     // Wait for all operations to finish
     await Promise.all(operations);
 
@@ -55,4 +55,3 @@ module.exports = async function(input, output) {
     console.error(`Error while optimizing css: ${error}`);
   }
 };
-

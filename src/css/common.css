@@ -8,7 +8,8 @@ html {
   --color-background: #fcfcfc;
   --color-background-code: #282c34;
   --color-text-important: #333;
-  --color-text: #747474;
+  --color-text: #4D4D4D;
+  --color-text-extra: #747474;
   --color-link: #005FBF;
 }
 
@@ -17,7 +18,8 @@ html {
     --color-background: #282c34; /* #242424 */
     --color-background-code: #21252b;
     --color-text-important: #fff;
-    --color-text: #fcfcfc;
+    --color-text: #eee;
+    --color-text-extra: #ccc;
     --color-link: #0091ff;
   }
 }
@@ -67,12 +69,6 @@ a {
 
 .hidden {
   display: none;
-}
-
-@media only screen and (max-width: 768px) {
-  .hidden-mobile {
-    display: none;
-  }
 }
 
 .center {
@@ -149,16 +145,20 @@ a {
 .navbar .nav-title a {
   color: var(--color-text-important);
   text-decoration: none;
+  font-weight: bold;
+  font-size: var(--font-title);
 }
 
 @media only screen and (max-width: 768px) {
   .navbar {
     /* Top: 1.5, left/right: 1, bottom: 0 */
     margin: 1rem 1rem 0;
+    flex-direction: column;
   }
   
   .navbar.index  {
     justify-content: center;
+    align-items: center;
   }
 
   .navbar .nav-links {
@@ -168,27 +168,22 @@ a {
   .navbar > * {
     margin: 1rem 0;
   }
+
   .navbar > *:not(:first-child) {
-    margin-left: 1.5rem;
+    margin-top: 0.25rem;
+    margin-right: 0;
+    margin-left: 0;
   }
   .navbar > *:not(:last-child) {
-    margin-right: 1.5rem;
+    margin-bottom: 0.25rem;
+    margin-right: 0;
+    margin-left: 0;
   }
 }
 
 @media only screen and (max-width: 374px) {
   .navbar {
     margin-top: 1rem;
-  }
-
-  .navbar > * {
-    margin: 1rem 0;
-  }
-  .navbar > *:not(:first-child) {
-    margin-left: 0.25rem;
-  }
-  .navbar > *:not(:last-child) {
-    margin-right: 0.25rem;
   }
 }
 
