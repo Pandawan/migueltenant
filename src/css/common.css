@@ -7,6 +7,7 @@ html {
 
   --color-background: #fcfcfc;
   --color-background-code: #282c34;
+  --color-background-inline-code: #383e49;
   --color-text-important: #333;
   --color-text: #4D4D4D;
   --color-text-extra: #747474;
@@ -17,6 +18,7 @@ html {
   html {
     --color-background: #282c34; /* #242424 */
     --color-background-code: #21252b;
+    --color-background-inline-code: #21252b;
     --color-text-important: #fff;
     --color-text: #eee;
     --color-text-extra: #ccc;
@@ -54,15 +56,48 @@ body {
   background-color: var(--color-background);
   padding: 0;
   margin: 0;
+  color: var(--color-text);
 }
 
 p {
-  color: var(--color-text);
   font-size: var(--font-text);
 }
 
 a {
   color: var(--color-link); /* 40 98 244 */
+}
+
+h1, h2, h3, h4, h5, h6, th {
+  font-weight: 500;
+}
+
+h1 {
+  font-size: 1.6rem;
+}
+
+h2 {
+  font-size: 1.45rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+h4 {
+  font-size: 1.17rem;
+}
+
+h5 {
+  font-size: 1.1rem;
+}
+
+blockquote {
+  margin: 1.5em 0.75rem;
+}
+
+blockquote p {
+  border-left: 3px solid var(--color-text-extra);
+  padding: 0.5em 1rem;
 }
 
 /* Generic */
