@@ -67,7 +67,7 @@ pre {
   background-color: var(--color-background-code);
 }
 
-:not(pre) code {
+:not(pre) > code {
   padding: 0.15rem;
   font-size: var(--font-code);
   background-color: var(--color-background-inline-code);
