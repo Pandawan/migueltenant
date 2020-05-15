@@ -13,7 +13,7 @@
 
   border: 5px solid white;
   border-radius: 50%;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 3.2px 7.2px rgba(0,0,0,0.13), 0px 0px 3.8px rgba(0,0,0,0.11);
 }
 
 #profile .title {
@@ -119,6 +119,7 @@
   height: auto;
   object-fit: cover;
   border-radius: 1rem;
+  transition: all 0.2s ease-in-out;
 }
 
 .project-image-container {
@@ -133,7 +134,7 @@
 .project-image:hover,
 .project-image:active,
 .project-image:focus {
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 3.2px 7.2px rgba(0,0,0,0.13), 0px 0px 3.8px rgba(0,0,0,0.11);
 }
 
 @media only screen and (max-width: 1024px) {

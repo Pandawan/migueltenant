@@ -3,6 +3,8 @@ const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginBetterSlug = require("@borisschapira/eleventy-plugin-better-slug");
 const excerpt = require("eleventy-plugin-excerpt");
 const htmlmin = require("html-minifier");
+const markdownIt = require("markdown-it");
+const markdownItAnchor = require('markdown-it-anchor');
 
 const optimizeImages = require("./tools/optimize-images");
 const optimizeCSS = require("./tools/optimize-css");
@@ -22,17 +24,30 @@ module.exports = function(eleventyConfig) {
     optimizeCSS();
   }
 
+  // Add custom markdown-it rendering
+  let markdownLib = markdownIt({
+    html: true,
+    // Automatically convert URLs into <a>
+    linkify: true
+  }).use(markdownItAnchor);
+  // Register the custom markdownIt instance into eleventy
+  eleventyConfig.setLibrary("md", markdownLib);
+
+  // Add extra plugins
   eleventyConfig.addPlugin(syntaxHighlight);
   eleventyConfig.addPlugin(pluginBetterSlug);
   eleventyConfig.addPlugin(excerpt);
 
+  // Auto-copy CNAME and js files
   eleventyConfig.addPassthroughCopy("src/CNAME");
   eleventyConfig.addPassthroughCopy("src/js/");
 
+  // Stringify passed JSON with JsonStringify filter
   eleventyConfig.addFilter("JsonStringify", function(value) {
     return util.inspect(value);
   });
 
+  // Format date with dateFormat filter
   eleventyConfig.addFilter("dateFormat", function(date) {
     var monthNames = [
       "January",
