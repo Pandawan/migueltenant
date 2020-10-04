@@ -1,6 +1,6 @@
 {
   "name": "migueltenant",
-  "version": "3.4.0",
+  "version": "3.5.0",
   "private": true,
   "description": "My website",
   "scripts": {
@@ -19,17 +19,17 @@
   "homepage": "https://github.com/PandawanFr/migueltenant#readme",
   "devDependencies": {
     "@11ty/eleventy": "^0.11.0",
-    "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.1",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.2",
     "@borisschapira/eleventy-plugin-better-slug": "^1.0.1",
     "clean-css": "^4.2.3",
     "eleventy-plugin-excerpt": "^1.1.2",
     "fs-extra": "^9.0.1",
     "glob": "^7.1.6",
     "html-minifier": "^4.0.0",
-    "markdown-it": "^11.0.0",
-    "markdown-it-anchor": "^5.3.0",
+    "markdown-it": "^11.0.1",
+    "markdown-it-anchor": "^6.0.0",
     "serve": "^11.3.2",
-    "sharp": "^0.25.4"
+    "sharp": "^0.26.1"
   },
   "dependencies": {}
 }

@@ -23,6 +23,18 @@
   ],
   "projects": [
     {
+      "title": "Classes.fyi",
+      "description": "Get updates when your classes's seats open up.",
+      "url": "https://classes.fyi/",
+      "imageName": "classes-fyi"
+    },
+    {
+      "title": "deno_notify",
+      "description": "Send desktop notifications on all platforms in Deno.",
+      "url": "https://github.com/PandawanFr/deno_notify",
+      "imageName": "deno-notify"
+    },
+    {
       "title": "Waitless",
       "description": "Optimizing the hospital waiting experience.",
       "url": "https://devpost.com/software/test-jrqbek",
