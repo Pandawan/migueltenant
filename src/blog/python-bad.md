@@ -3,7 +3,7 @@ layout: postPage
 title: Python Bad
 description: A rant about Python and its tooling.
 tags: post
-date: 2020-20-09
+date: 2020-10-09
 ---
 
 *For context, I primarily use C# and JavaScript (or TypeScript) but have dabbled in other languages like Rust, C++, and Swift, among others. I have only rarely used or felt the need to use Python, whether for personal projects or contributing to other people's projects. Therefore, these observations are made with the point of view of an outsider looking in.*
@@ -79,4 +79,4 @@ Python has a lot of simple yet powerful features like ranges, async, sets, etc. 
 
 # Reconciled?
 
-I still dislike Python, but maybe some of the issues I have with it are simply things I need to get used to. Or tools I need to replace for other ones, like with Poetry. Overall, I give Python a 7/10, could be better but has definitely contributed and improved the programming scene.
+I still dislike Python, but maybe some of the issues I have with it are simply things I need to get used to. Or tools I need to replace for other ones, like with Poetry. Overall, I give Python a 7/10, could be better but has definitely contributed to and improved the programming scene.
