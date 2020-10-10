@@ -65,8 +65,8 @@ module.exports = function(eleventyConfig) {
     ];
 
     return `${
-      monthNames[date.getMonth()]
-    } ${date.getDate()}, ${date.getFullYear()}`;
+      monthNames[date.getUTCMonth()]
+    } ${date.getUTCDate()}, ${date.getUTCFullYear()}`;
   });
 
   // Automatically minify output html files
