@@ -8,7 +8,7 @@ date: 2020-20-09
 
 *For context, I primarily use C# and JavaScript (or TypeScript) but have dabbled in other languages like Rust, C++, and Swift, among others. I have only rarely used or felt the need to use Python, whether for personal projects or contributing to other people's projects. Therefore, these observations are made with the point of view of an outsider looking in.*
 
-This is a long read so if you want to see my most important points, see [Can I Speak to Your Package Manager](#can-i-speak-to-your-package-manager). Now let’s get to it.
+This is a long read so if you want to see my most important points, see [Can I Speak to Your Package Manager](#can-i-speak-to-your-package-manager). Now let’s get to it: Python is bad.
 
 ## The Obvious
 
