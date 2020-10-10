@@ -53,7 +53,7 @@ I've also found that many projects resorted to using Docker to allow for a clean
 
 If that wasn't enough, `pip` also doesn't actually keep track of package dependencies. If you were to install a package, find out you don't need it, and then uninstall it, you'd expect it to be gone along with all of the unnecessary dependencies it pulled in. But since Python relies on global packages for everything, `pip` can't assume that you're not using one of the dependencies.
 
-So now you're polluting your global namespace, and have to clean it all up manually whenever you uninstall a single package. In Node, npm keeps track of all your package dependencies into a tree, so removing a top-level package removes all its dependencies that aren't in use by other languages. There have been some tools like `pip-autoremove`, but those seem to be for Python 2, not 3, which brings me to my next point.
+So now you're polluting your global namespace, and have to clean it all up manually whenever you uninstall a single package. In Node, npm keeps track of all your package dependencies into a tree, so removing a top-level package removes all its dependencies that aren't in use by other packages. There have been some tools like `pip-autoremove`, but those seem to be for Python 2, not 3, which brings me to my next point.
 
 ## The Python That Will Never Die
 
