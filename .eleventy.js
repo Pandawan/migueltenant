@@ -47,6 +47,12 @@ module.exports = function(eleventyConfig) {
     return util.inspect(value);
   });
 
+  eleventyConfig.addFilter("isoDateFormat", function(date) {
+    const offset = date.getTimezoneOffset();
+    date = new Date(date.getTime() - (offset*60*1000));
+    return date.toISOString().split('T')[0];
+  })
+
   // Format date with dateFormat filter
   eleventyConfig.addFilter("dateFormat", function(date) {
     var monthNames = [
