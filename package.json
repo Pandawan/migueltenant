@@ -10,13 +10,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/PandawanFr/migueltenant.git"
+    "url": "git+https://github.com/Pandawan/migueltenant.git"
   },
   "author": "Miguel Tenant de La Tour",
   "bugs": {
-    "url": "https://github.com/PandawanFr/migueltenant/issues"
+    "url": "https://github.com/Pandawan/migueltenant/issues"
   },
-  "homepage": "https://github.com/PandawanFr/migueltenant#readme",
+  "homepage": "https://github.com/Pandawan/migueltenant#readme",
   "devDependencies": {
     "@11ty/eleventy": "^0.11.1",
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.4",

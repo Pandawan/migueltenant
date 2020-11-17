@@ -14,7 +14,7 @@
     },
     {
       "title": "GitHub",
-      "url": "https://github.com/PandawanFr"
+      "url": "https://github.com/Pandawan"
     },
     {
       "title": "Hackathons",
@@ -31,7 +31,7 @@
     {
       "title": "deno_notify",
       "description": "Send desktop notifications on all platforms in Deno.",
-      "url": "https://github.com/PandawanFr/deno_notify",
+      "url": "https://github.com/Pandawan/deno_notify",
       "imageName": "deno-notify"
     },
     {
@@ -55,7 +55,7 @@
     {
       "title": "Garlic Recipes",
       "description": "Get started with the Garlicoin cryptocurrency",
-      "url": "https://github.com/PandawanFr/GarlicRecipes",
+      "url": "https://github.com/Pandawan/GarlicRecipes",
       "imageName": "garlic-recipes"
     },
     {
@@ -67,7 +67,7 @@
     {
       "title": "Minecraft Script",
       "description": "Write Minecraft functions efficiently",
-      "url": "https://github.com/PandawanFr/mcs",
+      "url": "https://github.com/Pandawan/mcs",
       "imageName": "mcs"
     }
   ]
