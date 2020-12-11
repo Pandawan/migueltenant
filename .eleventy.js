@@ -4,7 +4,8 @@ const pluginBetterSlug = require("@borisschapira/eleventy-plugin-better-slug");
 const excerpt = require("eleventy-plugin-excerpt");
 const htmlmin = require("html-minifier");
 const markdownIt = require("markdown-it");
-const markdownItAnchor = require('markdown-it-anchor');
+const markdownItAnchor = require("markdown-it-anchor");
+const uslug = require("uslug");
 
 const optimizeImages = require("./tools/optimize-images");
 const optimizeCSS = require("./tools/optimize-css");
@@ -14,7 +15,7 @@ const devMode = process.argv.includes("--serve");
 /**
  * @param {import('@11ty/eleventy/src/EleventyConfig')} eleventyConfig Test
  */
-module.exports = function(eleventyConfig) {
+module.exports = function (eleventyConfig) {
   // Optimize all of the images automatically into webp
   optimizeImages();
 
@@ -28,8 +29,13 @@ module.exports = function(eleventyConfig) {
   let markdownLib = markdownIt({
     html: true,
     // Automatically convert URLs into <a>
-    linkify: true
-  }).use(markdownItAnchor);
+    linkify: true,
+  })
+    // Add #anchors for titles with a slug (use uslug so no special characters are included)
+    .use(markdownItAnchor, { 
+      slugify: (s) => uslug(s),
+    });
+
   // Register the custom markdownIt instance into eleventy
   eleventyConfig.setLibrary("md", markdownLib);
 
@@ -43,18 +49,18 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/js/");
 
   // Stringify passed JSON with JsonStringify filter
-  eleventyConfig.addFilter("JsonStringify", function(value) {
+  eleventyConfig.addFilter("JsonStringify", function (value) {
     return util.inspect(value);
   });
 
-  eleventyConfig.addFilter("isoDateFormat", function(date) {
+  eleventyConfig.addFilter("isoDateFormat", function (date) {
     const offset = date.getTimezoneOffset();
-    date = new Date(date.getTime() - (offset*60*1000));
-    return date.toISOString().split('T')[0];
-  })
+    date = new Date(date.getTime() - offset * 60 * 1000);
+    return date.toISOString().split("T")[0];
+  });
 
   // Format date with dateFormat filter
-  eleventyConfig.addFilter("dateFormat", function(date) {
+  eleventyConfig.addFilter("dateFormat", function (date) {
     var monthNames = [
       "January",
       "February",
@@ -67,7 +73,7 @@ module.exports = function(eleventyConfig) {
       "September",
       "October",
       "November",
-      "December"
+      "December",
     ];
 
     return `${
@@ -76,13 +82,13 @@ module.exports = function(eleventyConfig) {
   });
 
   // Automatically minify output html files
-  eleventyConfig.addTransform("htmlmin", function(content, outputPath) {
+  eleventyConfig.addTransform("htmlmin", function (content, outputPath) {
     if (devMode == false) {
       if (outputPath.endsWith(".html")) {
         let minified = htmlmin.minify(content, {
           useShortDoctype: true,
           removeComments: true,
-          collapseWhitespace: true
+          collapseWhitespace: true,
         });
         return minified;
       }
@@ -99,8 +105,8 @@ module.exports = function(eleventyConfig) {
   return {
     dir: {
       input: "src",
-      output: "docs"
+      output: "docs",
     },
-    templateFormats: formats
+    templateFormats: formats,
   };
 };

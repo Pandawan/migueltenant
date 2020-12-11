@@ -14,7 +14,7 @@
 {% block main %}
 <section class="container" id="blog-home">
     <div class="content">
-        {%- for post in collections.post -%}
+        {%- for post in collections.post | reverse -%}
             {% set content %}
                 <p class="description">{{ post.data.description }}<p>
             {% endset %}
