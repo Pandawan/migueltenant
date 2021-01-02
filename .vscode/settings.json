@@ -1,4 +1,3 @@
 {
-  "discord.enabled": false,
-  "editor.formatOnSave": false
+  "discord.enabled": false
 }

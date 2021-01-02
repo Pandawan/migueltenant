@@ -4,6 +4,7 @@ title: Why You're Taking Physics
 description: An informal essay on the reasoning behind course requirements for Computer Science students.
 tags: post
 date: 2020-12-11
+hidden: true
 ---
 
 Recently, I was engaged in a somewhat heated debate about whether or not Computer Science students should be required to take courses required of engineering students, such as Physics, Calculus, Discrete Math, etc. In this blog post, I’m hoping to write my thoughts in a concise and structured manner—something that is not possible in a live discussion. Without further ado, here’s why you’re taking Physics.
