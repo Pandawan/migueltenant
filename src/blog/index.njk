@@ -20,7 +20,7 @@
                     <p class="description">{{ post.data.description }}<p>
                 {% endset %}
                 {% from "post.njk" import postGenerator %}
-                {{ postGenerator(post.data.title, post.data.date | dateFormat, content, undefined, post.url) }}
+                {{ postGenerator(post.data.title, (post.data.date  | dateFormat) + " • " + (post.templateContent | readingTime), content, undefined, post.url) }}
             {%- endif %}
         {%- endfor -%}
     </div>

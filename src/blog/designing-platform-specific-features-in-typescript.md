@@ -116,7 +116,7 @@ This guarantees, **both at compile time and at runtime** that the `fly()` method
 
 Though the syntax is a bit *heavy*, it lets us create advanced APIs with specific features that are only available behind flags **at compile time**.
 
-In `deno_notify`, I make use of three separate flags (one for each platform), `MacOS`, `Windows`, and `Linux`. With these, I can specify different features that are only available on some platforms:
+In `deno_notify`, I make use of three separate flags (using generic type parameters) for the platforms that a notification can support. With these, I can specify **different features that are only available on some platforms**:
 
 ```ts
 /**
@@ -132,9 +132,39 @@ public icon = ((icon: string) => {
 }) as PlatformFeature<Windows | Linux, (icon: string) => this>;
 ```
 
-You may have noticed the `this.#verifyPlatform()` call. This is a [somewhat complicated function](https://github.com/Pandawan/deno_notify/blob/platforms/ts/notification.ts#L208) that verifies at runtime whether or not the current operating system is within the passed list of supported platforms. *(TODO: Switch link to master branch)*
+<details>
+<summary>So now, different Notification objects may have different APIs based on the platforms they are meant to support.</summary>
 
-Another useful application of this is to provide different parameter hints/types based on the platform. For example, macOS has a limited set of sound files which you can use for notifications. Rather than let the user guess or have a separate enum to access them, we can propose that list of sounds for macOS users while allowing any string for other platforms.
+For example, a multi-platform notification has no access to platform-specific features. Thus, the following will not compile.
+
+```ts
+const notif = new Notification();
+// Notification.icon() is not cross-platform, this will error
+linuxNotif.icon('/path/to/icon');
+```
+
+However, a notification that specifically targets linux or windows (or both) will compile and provide the "extended" API.
+
+```ts
+const linuxNotif = new Notification({ linux: true });
+// Notification.icon() is now available
+linuxNotif.icon('/path/to/icon');
+```
+
+And a notification that targets macos will not have access to that feature either, unless `strictSupport` is disabled.
+
+```ts
+// Second parameter is `strictSupport`
+const linuxNotif = new Notification({ linux: true, macos: true }, false);
+// Notification.icon() is silently ignored on macos, but works fine on linux.
+linuxNotif.icon('/path/to/icon');
+```
+
+</details>
+
+You may have also noticed the `this.#verifyPlatform()` call. This is a [somewhat complicated function](https://github.com/Pandawan/deno_notify/blob/platforms/ts/notification.ts#L208) that verifies at runtime whether or not the current operating system is within the passed list of supported platforms. *(TODO: Switch link to master branch)*
+
+Another useful application of this is to provide **different parameter hints/types based on the platform**. For example, macOS has a limited set of sound files which you can use for notifications. Rather than let the user guess or have a separate enum to access them, we can propose that list of sounds for macOS users while allowing any string for other platforms.
 
 ```ts
 type MacSoundNames = "Basso" | "Frog" | "Hero" | /* ... */ | "Ping" | "Sosumi";

@@ -96,12 +96,28 @@ h5 {
 }
 
 blockquote {
-  margin: 1.5em 0.75rem;
+  margin: 1.5rem 0.75rem;
 }
 
 blockquote p {
   border-left: 3px solid var(--color-text-extra);
   padding: 0.5em 1rem;
+}
+
+details {
+  margin: 1.5rem 0;
+  font-size: var(--font-text);
+  border-left: 3px solid transparent;
+  transition: all 0.25s ease;
+}
+
+details[open] {
+  border-left: 3px solid var(--color-text-extra);
+  padding: 0 0.5rem;
+}
+
+details summary {
+  cursor: pointer;
 }
 
 /* Generic */

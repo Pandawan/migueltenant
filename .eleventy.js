@@ -2,6 +2,7 @@ const util = require("util");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginBetterSlug = require("@borisschapira/eleventy-plugin-better-slug");
 const excerpt = require("eleventy-plugin-excerpt");
+const readingTime = require('eleventy-plugin-reading-time');
 const htmlmin = require("html-minifier");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
@@ -43,6 +44,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(syntaxHighlight);
   eleventyConfig.addPlugin(pluginBetterSlug);
   eleventyConfig.addPlugin(excerpt);
+  eleventyConfig.addPlugin(readingTime);
 
   // Auto-copy CNAME and js files
   eleventyConfig.addPassthroughCopy("src/CNAME");

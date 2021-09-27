@@ -1,4 +1,4 @@
-{# This is for an post's singular page by itself #}
+{# This is for a post's singular page by itself #}
 {% extends "default.njk" %}
 {% set type = 'post' %}
 {% set navTitle = blog.navTitle %}
@@ -19,6 +19,6 @@
 {% set footer %}
     <div class="center go-back"><a href="/blog">See more posts</a></div>
 {% endset %}
-{{ postGenerator(title, date | dateFormat, content, footer) }}
+{{ postGenerator(title, (date | dateFormat) + " • " + (content | readingTime), content, footer) }}
 </div>
 {% endblock %}
