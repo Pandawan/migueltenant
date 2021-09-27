@@ -35,9 +35,11 @@ function getImageSize(imageName, type) {
  */
 module.exports = async function(input, output) {
   try {
+    const imagesPath = path.join(__dirname, '../src/images');
+
     const inputPath = input
       ? path.normalize(input)
-      : path.join(__dirname, "../src/images/*.{jpg,png}");
+      : path.join(imagesPath, "./**/*.{jpg,png}");
     const outputPath = output
       ? path.normalize(output)
       : path.join(__dirname, "../docs/images");
@@ -55,31 +57,22 @@ module.exports = async function(input, output) {
 
     const operations = [];
 
-    // Loop through every file and convert to webp
+    // Loop through every file and decide how to process it
     for (const filePath of fileNames) {
-      const fileName = path.basename(filePath).replace(/\.[^/.]+$/, "");
+      const fileName = path.basename(filePath);
+      const fileSubpath = path.dirname(filePath.replace(imagesPath, ''));
 
-      const outputFilePath = path.join(outputPath, fileName);
-
-      // Resize the image to 960x540 (large) (but don't enlarge if already smaller)
-      const image = sharp(filePath).resize(...getImageSize(fileName, "large"), {
-        fit: "inside",
-        withoutEnlargement: true
-      });
-      operations.push(
-        image.png({ quality: 100 }).toFile(outputFilePath + ".png"),
-        image.webp({ quality: 100 }).toFile(outputFilePath + ".webp")
-      );
-
-      // Resize the image to 480x270 (small) (but don't enlarge if already smaller)
-      image.resize(...getImageSize(fileName, "small"), {
-        fit: "inside",
-        withoutEnlargement: true
-      });
-      operations.push(
-        image.png({ quality: 80 }).toFile(outputFilePath + "-small.png"),
-        image.webp({ quality: 80 }).toFile(outputFilePath + "-small.webp")
-      );
+      // If the last folder is /copy, copy it over directly
+      if (fileSubpath.endsWith('/copy')) {
+        const fileSubpathWithoutCopy = fileSubpath.substring(0, fileSubpath.length - '/copy'.length);
+        const outputDirectory = path.join(outputPath, fileSubpathWithoutCopy);
+        operations.push(copyFile(fileName, filePath, outputDirectory));
+      }
+      // Otherwise, turn it into webp and optimize it
+      else {
+        const outputDirectory = path.join(outputPath, fileSubpath);
+        operations.push(optimizeImage(fileName, filePath, outputDirectory));
+      }
     }
 
     // Wait for all webp operations to finish
@@ -90,3 +83,41 @@ module.exports = async function(input, output) {
     console.error(`Error while optimizing images: ${error}`);
   }
 };
+
+async function optimizeImage(fileName, filePath, outputDirectory) {
+  await fse.ensureDir(path.join(outputDirectory));
+
+  const outputFilePathWithoutExtension = path.join(outputDirectory, fileName.replace(/\.[^/.]+$/, ""));
+
+  const operations = [];
+
+  // Resize the image to 960x540 (large) (but don't enlarge if already smaller)
+  const image = sharp(filePath).resize(...getImageSize(fileName, "large"), {
+    fit: "inside",
+    withoutEnlargement: true
+  });
+  operations.push(
+    image.png({ quality: 100 }).toFile(outputFilePathWithoutExtension + ".png"),
+    image.webp({ quality: 100 }).toFile(outputFilePathWithoutExtension + ".webp")
+  );
+
+  // Resize the image to 480x270 (small) (but don't enlarge if already smaller)
+  image.resize(...getImageSize(fileName, "small"), {
+    fit: "inside",
+    withoutEnlargement: true
+  });
+  operations.push(
+    image.png({ quality: 80 }).toFile(outputFilePathWithoutExtension + "-small.png"),
+    image.webp({ quality: 80 }).toFile(outputFilePathWithoutExtension + "-small.webp")
+  );
+
+  await Promise.all(operations);
+}
+
+async function copyFile(fileName, filePath, outputDirectory) {
+    await fse.ensureDir(path.join(outputDirectory));
+
+    const outputFilePath = path.join(outputDirectory, fileName);
+
+    await fse.copyFile(filePath, outputFilePath);
+}
