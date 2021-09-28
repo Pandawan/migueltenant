@@ -67,14 +67,13 @@ img {
 }
 
 pre {
-  padding: 0.75rem;
   font-size: var(--font-code);
-  background-color: var(--color-background-code);
 }
 
 :not(pre) > code {
-  padding: 0.15rem;
+  padding: 0.15rem 0.25rem;
   font-size: var(--font-code);
+  border-radius: 0.3em;
   background-color: var(--color-background-inline-code);
   color: #ccc;
 }
