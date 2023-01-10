@@ -1,0 +1,21 @@
+---
+const navLinks = [
+  { name: "Home", path: "/" },
+  { name: "Work", path: "/#work" },
+  { name: "Blog", path: "/blog" },
+];
+---
+
+<header class="mx-12 my-8">
+  <nav>
+    <ul class="flex justify-center md:justify-end space-x-4">
+      {
+        navLinks.map(({ name, path }) => (
+          <li class="text-lg text-neutral-600">
+            <a href={path}>{name}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>
