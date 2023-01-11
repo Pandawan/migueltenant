@@ -1,6 +1,5 @@
 ---
 import { Picture } from "@astrojs/image/components";
-import CenteredContent from "@components/CenteredContent.astro";
 
 const mainLinks = [
   { name: "Email", url: "mailto:migueltenant@gmail.com" },
@@ -10,31 +9,40 @@ const mainLinks = [
 ];
 ---
 
-<section class="w-screen flex flex-col-reverse md:flex-row">
-  <div class="h-full w-full md:w-3/5 xl:w-1/2">
+<section
+  class:list={[
+    "flex flex-col-reverse md:flex-row",
+    // On desktop, restrict view to height of the screen
+    "md:h-screen",
+  ]}
+>
+  <div class="w-full md:w-3/5 xl:w-1/2">
     <Picture
-      class="grayscale"
+      class={// TODO: I don't like how object-cover blocks the arm! Maybe I should just ignore semantic HTML
+      "grayscale h-full object-cover"}
       src={import("@assets/miguel_apple_II.png")}
       widths={[600, 1000, 2000, 3024]}
       sizes="(max-width: 3024px) 100vw, 3024px"
       alt="descriptive text"
     />
   </div>
-  <div class="px-4 sm:mx-auto md:mx-0 my-12 md:my-0 space-y-1 lg:space-y-3">
-    <h1 class="text-3xl lg:text-4xl font-semibold text-neutral-800">
-      Hey, I'm Miguel.
-    </h1>
-    <p class="text-xl lg:text-2xl text-neutral-800">
-      I'm a 21-year old EECS student,<br />and I love building things.
-    </p>
-    <ul class="flex space-x-4">
-      {
-        mainLinks.map(({ name, url }) => (
-          <li class="text-xl lg:text-2xl text-neutral-800 underline">
-            <a href={url}>{name}</a>
-          </li>
-        ))
-      }
-    </ul>
+  <div class="p-4 sm:mx-auto md:mx-0 my-12 md:my-28">
+    <div class="space-y-1 lg:space-y-3">
+      <h1 class="text-3xl lg:text-4xl font-semibold text-neutral-800">
+        Hey, I'm Miguel.
+      </h1>
+      <p class="text-xl lg:text-2xl text-neutral-800">
+        I'm a 21-year old EECS student,<br />and I love building things.
+      </p>
+      <ul class="flex space-x-4">
+        {
+          mainLinks.map(({ name, url }) => (
+            <li class="text-xl lg:text-2xl text-neutral-800 underline">
+              <a href={url}>{name}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
   </div>
 </section>
