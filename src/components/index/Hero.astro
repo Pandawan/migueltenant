@@ -13,28 +13,34 @@ const mainLinks = [
   class:list={[
     "flex flex-col-reverse md:flex-row",
     // On desktop, restrict view to height of the screen
-    "md:h-screen",
+    "landscape:md:h-screen",
   ]}
 >
-  <Picture
-    class={"grayscale h-full object-cover object-right"}
-    src={import("@assets/miguel_apple_II.png")}
-    widths={[640, 768, 1024, 1280, 1536, 1920, 2560, 3024]}
-    sizes="(min-width: 1280px) 50vw, 100vw"
-    alt="descriptive text"
-  />
-  <div class="my-12 p-4 sm:mx-auto md:mx-0 md:my-32 lg:px-8">
+  <div class="w-full md:w-3/5 lg:w-1/2">
+    <Picture
+      class={"grayscale h-full object-cover object-right"}
+      src={import("@assets/miguel_apple_II.png")}
+      widths={[320, 640, 768, 1024, 1280, 1536, 1920, 2560, 3020]}
+      sizes="(min-width: 1280px) 50vw, (min-width: 768px) 60vw, 100vw"
+      alt="descriptive text"
+    />
+  </div>
+  <div class="mx-auto my-12 flex-auto p-4 md:mx-0 md:my-32">
     <div class="space-y-1 md:space-y-3 lg:space-y-5">
-      <h1 class="text-3xl font-semibold text-neutral-800 lg:text-4xl">
+      <h1
+        class="text-2xl font-semibold text-neutral-800 sm:text-3xl lg:text-4xl"
+      >
         Hey, I'm Miguel.
       </h1>
-      <p class="text-xl font-light text-neutral-800 md:text-2xl lg:text-3xl">
+      <p
+        class="text-xl font-light text-neutral-800 sm:text-2xl md:text-2xl lg:text-3xl"
+      >
         I'm a 21-year old EECS student,<br />and I love building things.
       </p>
       <ul class="flex space-x-4">
         {
           mainLinks.map(({ name, url }) => (
-            <li class="text-xl font-light text-neutral-800 underline md:text-2xl lg:text-3xl">
+            <li class="text-xl font-light text-neutral-800 underline sm:text-2xl md:text-2xl lg:text-3xl">
               <a href={url}>{name}</a>
             </li>
           ))
