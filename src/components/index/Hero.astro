@@ -16,28 +16,25 @@ const mainLinks = [
     "md:h-screen",
   ]}
 >
-  <div class="w-full md:w-3/5 xl:w-1/2">
-    <Picture
-      class={// TODO: I don't like how object-cover blocks the arm! Maybe I should just ignore semantic HTML
-      "grayscale h-full object-cover"}
-      src={import("@assets/miguel_apple_II.png")}
-      widths={[600, 1000, 2000, 3024]}
-      sizes="(max-width: 3024px) 100vw, 3024px"
-      alt="descriptive text"
-    />
-  </div>
-  <div class="p-4 sm:mx-auto md:mx-0 my-12 md:my-28">
-    <div class="space-y-1 lg:space-y-3">
-      <h1 class="text-3xl lg:text-4xl font-semibold text-neutral-800">
+  <Picture
+    class={"grayscale h-full object-cover object-right"}
+    src={import("@assets/miguel_apple_II.png")}
+    widths={[640, 768, 1024, 1280, 1536, 1920, 2560, 3024]}
+    sizes="(min-width: 1280px) 50vw, 100vw"
+    alt="descriptive text"
+  />
+  <div class="my-12 p-4 sm:mx-auto md:mx-0 md:my-32 lg:px-8">
+    <div class="space-y-1 md:space-y-3 lg:space-y-5">
+      <h1 class="text-3xl font-semibold text-neutral-800 lg:text-4xl">
         Hey, I'm Miguel.
       </h1>
-      <p class="text-xl lg:text-2xl text-neutral-800">
+      <p class="text-xl font-light text-neutral-800 md:text-2xl lg:text-3xl">
         I'm a 21-year old EECS student,<br />and I love building things.
       </p>
       <ul class="flex space-x-4">
         {
           mainLinks.map(({ name, url }) => (
-            <li class="text-xl lg:text-2xl text-neutral-800 underline">
+            <li class="text-xl font-light text-neutral-800 underline md:text-2xl lg:text-3xl">
               <a href={url}>{name}</a>
             </li>
           ))
