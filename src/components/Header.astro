@@ -8,10 +8,10 @@ const navLinks = [
 
 <header>
   <nav class="mx-12 my-8">
-    <ul class="flex justify-center md:justify-end space-x-4">
+    <ul class="flex justify-center space-x-4 md:justify-end">
       {
         navLinks.map(({ name, path }) => (
-          <li class="text-lg text-neutral-600">
+          <li class="text-lg text-neutral-600 dark:text-neutral-400">
             <a href={path}>{name}</a>
           </li>
         ))
