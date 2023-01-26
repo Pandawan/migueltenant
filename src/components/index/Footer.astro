@@ -1,0 +1,38 @@
+---
+import {
+  SOCIAL_GITHUB,
+  SOCIAL_LINKEDIN,
+  SOCIAL_MAIL,
+  SOCIAL_TWITTER,
+} from "src/config";
+
+import GitHubIcon from "@components/svg/GitHubIcon.astro";
+import LinkedInIcon from "@components/svg/LinkedInIcon.astro";
+import MailIcon from "@components/svg/MailIcon.astro";
+import TwitterIcon from "@components/svg/TwitterIcon.astro";
+---
+
+<footer class="my-32">
+  <ul class="flex flex-row justify-center space-x-4 md:space-x-6">
+    <li>
+      <a href={SOCIAL_TWITTER}>
+        <TwitterIcon />
+      </a>
+    </li>
+    <li>
+      <a href={SOCIAL_MAIL}>
+        <MailIcon />
+      </a>
+    </li>
+    <li>
+      <a href={SOCIAL_GITHUB}>
+        <GitHubIcon />
+      </a>
+    </li>
+    <li>
+      <a href={SOCIAL_LINKEDIN}>
+        <LinkedInIcon />
+      </a>
+    </li>
+  </ul>
+</footer>
