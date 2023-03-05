@@ -1,0 +1,60 @@
+---
+import { Picture } from "@astrojs/image/components";
+import Link from "@components/format/links/Link.astro";
+import Paragraph from "@components/format/text/Paragraph.astro";
+import MainTitle from "@components/format/text/MainTitle.astro";
+
+import {
+  LINK_RESUME,
+  SOCIAL_GITHUB,
+  SOCIAL_LINKEDIN,
+  SOCIAL_MAIL,
+} from "src/config";
+
+const mainLinks = [
+  { name: "Email", url: SOCIAL_MAIL },
+  { name: "Resume", url: LINK_RESUME },
+  { name: "GitHub", url: SOCIAL_GITHUB },
+  { name: "LinkedIn", url: SOCIAL_LINKEDIN },
+];
+---
+
+<section
+  class:list={[
+    "flex flex-col-reverse md:flex-row",
+    // On desktop, restrict view to height of the screen
+    "landscape:md:h-screen",
+  ]}
+>
+  <div class="w-full md:w-3/5 lg:w-1/2">
+    <Picture
+      class={"grayscale h-full object-cover object-right dark:grayscale-0 dark:brightness-[90%]"}
+      src={import("@assets/miguel_apple_II.png")}
+      widths={[320, 640, 768, 1024, 1280, 1536, 1920, 2560, 3020]}
+      sizes="(min-width: 1280px) 50vw, (min-width: 768px) 60vw, 100vw"
+      alt="Photograph of Miguel using an Apple 2c computer."
+    />
+  </div>
+  <div class="my-12 mx-auto flex-auto p-4 md:mx-0 md:my-32">
+    <div class="space-y-1 md:space-y-3 lg:space-y-5">
+      <MainTitle>Hey, I'm Miguel.</MainTitle>
+      <Paragraph size="large">
+        I'm a 21-year old EECS student,<br />and I love building things.
+      </Paragraph>
+      <ul class="flex space-x-4">
+        {
+          mainLinks.map(({ name, url }) => (
+            <li>
+              <Link
+                class="text-lg font-light text-neutral-800 underline dark:text-neutral-200 sm:text-xl md:text-xl lg:text-2xl"
+                href={url}
+              >
+                {name}
+              </Link>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>

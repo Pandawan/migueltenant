@@ -1,0 +1,52 @@
+---
+import { Picture } from "@astrojs/image/components";
+import ToArrow from "@components/ToArrow.astro";
+import SectionTitle from "@components/format/text/SectionTitle.astro";
+import Paragraph from "@components/format/text/Paragraph.astro";
+import Heading from "@components/format/text/Heading.astro";
+import Link from "@components/format/links/Link.astro";
+import ArrowLink from "@components/format/links/ArrowLink.astro";
+import CenterContainer from "@components/format/containers/CenterContainer.astro";
+
+import type { HTMLAttributes } from "astro/types";
+type Props = HTMLAttributes<"section">;
+---
+
+<section {...Astro.props} class="my-12 space-y-3 pt-4">
+  <CenterContainer>
+    <SectionTitle>Selected projects</SectionTitle>
+  </CenterContainer>
+  <!-- deno_notify -->
+  <CenterContainer size="large">
+    <Picture
+      class={"grayscale object-cover w-full"}
+      src={import("@assets/deno_notify.png")}
+      widths={[320, 576, 672, 768, 960]}
+      sizes="(min-width: 1024px) 672px, (min-width: 640px) 576px, 100vw"
+      alt={'Screen capture of a macOS notification with title "deno_notify" and body "Send desktop notification on all platforms in Deno."'}
+    />
+  </CenterContainer>
+  <CenterContainer class="space-y-3">
+    <Heading>deno_notify</Heading>
+    <Paragraph>
+      I built TypeScript<ToArrow aria-label="to" />Rust<ToArrow
+        aria-label="to"
+      />ObjC bindings to send native desktop notifications in Deno.
+    </Paragraph>
+    <Paragraph>
+      This includes work on <Link
+        href="https://github.com/h4llow3En/mac-notification-sys"
+      >
+        mac_notification_sys
+      </Link> to bridge the gap between Rust and macOS's native APIs.
+    </Paragraph>
+    <Paragraph>
+      <ArrowLink
+        class="font-normal"
+        href="https://github.com/Pandawan/deno_notify"
+      >
+        Check it out
+      </ArrowLink>
+    </Paragraph>
+  </CenterContainer>
+</section>
