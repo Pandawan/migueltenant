@@ -11,8 +11,13 @@ const navLinks = [
     <ul class="flex justify-center space-x-4 md:justify-end">
       {
         navLinks.map(({ name, path }) => (
-          <li class="text-lg text-neutral-600 dark:text-neutral-400">
-            <a href={path}>{name}</a>
+          <li>
+            <a
+              class="text-lg text-neutral-600 hover:underline hover:decoration-2 dark:text-neutral-400"
+              href={path}
+            >
+              {name}
+            </a>
           </li>
         ))
       }
