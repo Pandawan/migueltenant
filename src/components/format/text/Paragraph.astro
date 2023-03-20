@@ -4,7 +4,7 @@ type Props = {
   size?: "large" | "normal";
 } & HTMLAttributes<"p">;
 
-const { size = "normal", ...props } = Astro.props;
+const { size = "normal", class: className, ...props } = Astro.props;
 ---
 
 <p
@@ -14,6 +14,7 @@ const { size = "normal", ...props } = Astro.props;
       "text-xl sm:text-2xl lg:text-3xl": size == "large",
       "text-lg sm:text-xl md:text-xl lg:text-2xl": size == "normal",
     },
+    className,
   ]}
   {...props}
 >

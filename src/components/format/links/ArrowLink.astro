@@ -9,6 +9,6 @@ const { class: className, ...props } = Astro.props;
 <a class:list={["group", className]} {...props}>
   <slot />
   <ToArrow
-    class="inline-block group-hover:translate-x-1 transition-transform"
+    class="inline-block transition-transform group-hover:translate-x-1"
   />
 </a>

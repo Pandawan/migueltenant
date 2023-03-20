@@ -5,6 +5,4 @@ type Props = HTMLAttributes<"a">;
 const { class: className, ...props } = Astro.props;
 ---
 
-<a class:list={["underline", className]} {...props}>
-  <slot />
-</a>
+<a class:list={["underline", className]} {...props}><slot /></a>

@@ -19,7 +19,7 @@ type Props = HTMLAttributes<"section">;
   <!-- deno_notify -->
   <CenterContainer size="large">
     <Picture
-      class={"grayscale object-cover w-full"}
+      class="w-full object-cover grayscale dark:grayscale-0"
       src={import("@assets/deno_notify.png")}
       widths={[320, 576, 672, 768, 960]}
       sizes="(min-width: 1024px) 672px, (min-width: 640px) 576px, 100vw"
@@ -37,7 +37,7 @@ type Props = HTMLAttributes<"section">;
       This includes work on <Link
         href="https://github.com/h4llow3En/mac-notification-sys"
       >
-        mac_notification_sys
+        <>mac_notification_sys</>
       </Link> to bridge the gap between Rust and macOS's native APIs.
     </Paragraph>
     <Paragraph>

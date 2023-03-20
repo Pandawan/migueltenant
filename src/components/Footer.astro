@@ -10,9 +10,11 @@ import GitHubIcon from "@components/svg/GitHubIcon.astro";
 import LinkedInIcon from "@components/svg/LinkedInIcon.astro";
 import MailIcon from "@components/svg/MailIcon.astro";
 import TwitterIcon from "@components/svg/TwitterIcon.astro";
+
+const { class: className, ...props } = Astro.props;
 ---
 
-<footer class="my-32">
+<footer class:list={["my-32", className]} {...props}>
   <ul class="flex flex-row justify-center space-x-4 md:space-x-6">
     <!-- <li
       class="text-neutral-600 hover:text-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-200"

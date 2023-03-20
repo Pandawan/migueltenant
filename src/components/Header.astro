@@ -1,4 +1,10 @@
 ---
+export interface Props {
+  title?: string | { content: string; url: string };
+}
+
+const { title } = Astro.props;
+
 const navLinks = [
   { name: "Home", path: "/" },
   { name: "Work", path: "/#work" },
@@ -7,8 +13,31 @@ const navLinks = [
 ---
 
 <header>
-  <nav class="mx-12 my-8">
-    <ul class="flex justify-center space-x-4 md:justify-end">
+  <nav
+    class:list={[
+      "mx-12 my-8 space-y-2 md:space-y-0 flex flex-col md:flex-row",
+      {
+        "justify-end": title === undefined,
+        "justify-between": title !== undefined,
+      },
+    ]}
+  >
+    {
+      title &&
+        (typeof title === "string" ? (
+          <p class="mx-auto text-xl text-neutral-600 dark:text-neutral-400 md:mx-0 md:text-lg">
+            {title}
+          </p>
+        ) : (
+          <a
+            class="mx-auto text-xl text-neutral-600 dark:text-neutral-400 md:mx-0 md:text-lg"
+            href={title.url}
+          >
+            {title.content}
+          </a>
+        ))
+    }
+    <ul class="flex justify-center space-x-4">
       {
         navLinks.map(({ name, path }) => (
           <li>
