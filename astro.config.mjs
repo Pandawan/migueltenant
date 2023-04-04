@@ -14,5 +14,6 @@ export default defineConfig({
     sitemap(),
   ],
   site: "https://migueltenant.com",
+  outDir: "./docs",
   // TODO: Switch to astro/image with the Astro 2.1 Experimental Assets
 });
