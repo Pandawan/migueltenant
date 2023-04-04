@@ -1,0 +1,54 @@
+---
+import { BLOG_TITLE, BLOG_DESCRIPTION, BLOG_PATH } from "../../config";
+
+import { getCollection } from "astro:content";
+import { format } from "date-fns";
+
+import Html from "@layouts/Html.astro";
+import BaseHead from "@components/BaseHead.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import CenterContainer from "@components/format/containers/CenterContainer.astro";
+import Heading from "@components/format/text/Heading.astro";
+import Paragraph from "@components/format/text/Paragraph.astro";
+import SubHeading from "@components/format/text/SubHeading.astro";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => a.data.date.valueOf() - b.data.date.valueOf()
+);
+
+const formatDate = (date: Date): string => {
+  return format(date, "MMMM d, Y");
+};
+---
+
+<Html>
+  <head>
+    <BaseHead title={BLOG_TITLE} description={BLOG_DESCRIPTION} />
+  </head>
+  <body>
+    <Header title={{ content: BLOG_TITLE, url: BLOG_PATH }} />
+    <main>
+      <CenterContainer size="large" class="my-16 px-4">
+        <ol>
+          {
+            posts.map((post) => (
+              <li>
+                <article>
+                  <Heading class="leading-relaxed">
+                    <a href={`${BLOG_PATH}/${post.slug}`}>{post.data.title}</a>
+                  </Heading>
+                  <SubHeading class="leading-relaxed">
+                    {formatDate(post.data.date)}
+                  </SubHeading>
+                  <Paragraph>{post.data.description}</Paragraph>
+                </article>
+              </li>
+            ))
+          }
+        </ol>
+      </CenterContainer>
+    </main>
+    <Footer />
+  </body>
+</Html>

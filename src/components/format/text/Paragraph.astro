@@ -1,18 +1,19 @@
 ---
 import type { HTMLAttributes } from "astro/types";
 type Props = {
-  size?: "large" | "normal";
+  size?: "xl" | "lg" | "base";
 } & HTMLAttributes<"p">;
 
-const { size = "normal", class: className, ...props } = Astro.props;
+const { size = "base", class: className, ...props } = Astro.props;
 ---
 
 <p
   class:list={[
     "font-light text-neutral-800 dark:text-neutral-200",
     {
-      "text-xl sm:text-2xl lg:text-3xl": size == "large",
-      "text-lg sm:text-xl md:text-xl lg:text-2xl": size == "normal",
+      "text-xl sm:text-2xl lg:text-3xl": size == "xl",
+      "text-lg sm:text-xl lg:text-2xl": size == "lg",
+      "text-base sm:text-lg lg:text-xl": size == "base",
     },
     className,
   ]}

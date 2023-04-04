@@ -10,7 +10,7 @@ const { size = "normal", class: className, ...props } = Astro.props;
 <div
   class:list={[
     {
-      "mx-auto max-w-sm px-4 sm:max-w-lg lg:max-w-xl": size == "normal",
+      "mx-auto max-w-sm sm:max-w-lg lg:max-w-xl": size == "normal",
       "mx-auto w-full sm:max-w-xl lg:max-w-2xl 2xl:max-w-3xl": size == "large",
     },
     className,
