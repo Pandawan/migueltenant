@@ -1,5 +1,5 @@
 ---
-import { Picture } from "@astrojs/image/components";
+import { Image } from "astro:assets";
 import ToArrow from "@components/ToArrow.astro";
 import SectionTitle from "@components/format/text/SectionTitle.astro";
 import Paragraph from "@components/format/text/Paragraph.astro";
@@ -10,6 +10,8 @@ import CenterContainer from "@components/format/containers/CenterContainer.astro
 
 import type { HTMLAttributes } from "astro/types";
 type Props = HTMLAttributes<"section">;
+
+import denoNotifyImage from "@assets/deno_notify.png";
 ---
 
 <section {...Astro.props} class="my-12 space-y-3 pt-4">
@@ -18,9 +20,9 @@ type Props = HTMLAttributes<"section">;
   </CenterContainer>
   <!-- deno_notify -->
   <CenterContainer size="large">
-    <Picture
-      class="w-full object-cover grayscale dark:grayscale-0"
-      src={import("@assets/deno_notify.png")}
+    <Image
+      class="w-full object-cover grayscale hover:grayscale-0 dark:grayscale-0"
+      src={denoNotifyImage}
       widths={[320, 576, 672, 768, 960]}
       sizes="(min-width: 1024px) 672px, (min-width: 640px) 576px, 100vw"
       alt={'Screen capture of a macOS notification with title "deno_notify" and body "Send desktop notification on all platforms in Deno."'}

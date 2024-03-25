@@ -5,15 +5,20 @@ import SectionTitle from "@components/format/text/SectionTitle.astro";
 ---
 
 <!-- portrait:my-36 landscape: -->
-<section class="flex h-screen flex-col items-center justify-center">
+<section
+  class:list={[
+    "flex flex-col items-center justify-center",
+    "h-screen landscape:max-h-[960px]",
+  ]}
+>
   <CenterContainer class="space-y-3 px-4">
     <SectionTitle>About me</SectionTitle>
     <Paragraph size="xl">
       I was born in France and am now living in the San Francisco Bay Area.
     </Paragraph>
     <Paragraph size="xl">
-      I'm a fourth year student at UC Berkeley studying Electrical Engineering
-      and Computer Science.
+      I'm an engineer on visionOS UI Frameworks at Apple, and a Berkeley EECS
+      alum.
     </Paragraph>
     <Paragraph size="xl">
       In my spare time, I like learning and tinkering with frameworks, systems,
