@@ -2,11 +2,11 @@
 
 export const SITE_TITLE = "Miguel Tenant de La Tour";
 export const SITE_DESCRIPTION =
-  "I'm a 21-year old EECS student, and I love building things.";
+  "I'm a 22-year old developer, and I love building things.";
 
-export const BLOG_TITLE = "Miguel's Blog";
+export const BLOG_TITLE = "Miguel's Blabber";
 export const BLOG_DESCRIPTION =
-  "Random thoughts of a 21-year old student and software engineer.";
+  "Random thoughts of a foolish 22-year old with a lot of ambition.";
 export const BLOG_PATH = "/blog";
 
 export const LINK_RESUME =
