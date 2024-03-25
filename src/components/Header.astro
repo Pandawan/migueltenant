@@ -15,7 +15,7 @@ const navLinks = [
 <header>
   <nav
     class:list={[
-      "mx-12 my-8 space-y-2 md:space-y-0 flex flex-col md:flex-row",
+      "mx-12 my-8 flex flex-col-reverse gap-2 md:flex-row md:gap-0",
       {
         "justify-end": title === undefined,
         "justify-between": title !== undefined,
@@ -25,12 +25,12 @@ const navLinks = [
     {
       title &&
         (typeof title === "string" ? (
-          <p class="mx-auto text-xl text-neutral-600 dark:text-neutral-400 md:mx-0 md:text-lg">
+          <p class="mx-auto text-xl text-neutral-600 md:mx-0 md:text-lg dark:text-neutral-400">
             {title}
           </p>
         ) : (
           <a
-            class="mx-auto text-xl text-neutral-600 dark:text-neutral-400 md:mx-0 md:text-lg"
+            class="mx-auto text-xl text-neutral-600 md:mx-0 md:text-lg dark:text-neutral-400"
             href={title.url}
           >
             {title.content}

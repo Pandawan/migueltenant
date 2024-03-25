@@ -4,6 +4,8 @@ import { format } from "date-fns";
 import BlogLayout from "./Blog.astro";
 import type { Props as BlogProps } from "./Blog.astro";
 import PostHeading from "@components/pages/blog/PostHeading.astro";
+import Paragraph from "@components/format/text/Paragraph.astro";
+import Link from "@components/format/links/Link.astro";
 
 export type Props = BlogProps & {
   frontmatter: {
@@ -28,4 +30,7 @@ const formatDate = (date: Date): string => {
     <PostHeading title={title} date={date} />
   </div>
   <slot />
+  <Paragraph size="lg" class="mt-12 text-center">
+    <Link href="/blog">See more posts</Link>
+  </Paragraph>
 </BlogLayout>
