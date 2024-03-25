@@ -1,8 +1,9 @@
 ---
 import type { HTMLAttributes } from "astro/types";
-type Props = {
+
+export type Props = HTMLAttributes<"div"> & {
   size?: "large" | "normal";
-} & HTMLAttributes<"div">;
+};
 
 const { size = "normal", class: className, ...props } = Astro.props;
 ---

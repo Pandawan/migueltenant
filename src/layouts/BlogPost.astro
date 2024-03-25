@@ -1,0 +1,31 @@
+---
+import { format } from "date-fns";
+
+import BlogLayout from "./Blog.astro";
+import type { Props as BlogProps } from "./Blog.astro";
+import PostHeading from "@components/pages/blog/PostHeading.astro";
+
+export type Props = BlogProps & {
+  frontmatter: {
+    title: string;
+    description: string;
+    date: Date;
+    tags?: string[];
+  };
+};
+
+// TODO: Add an embed image
+const { frontmatter, ...props } = Astro.props;
+const { title, description, date, tags } = frontmatter;
+
+const formatDate = (date: Date): string => {
+  return format(date, "MMMM d, y");
+};
+---
+
+<BlogLayout {...props}>
+  <div>
+    <PostHeading title={title} date={date} />
+  </div>
+  <slot />
+</BlogLayout>

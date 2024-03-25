@@ -1,0 +1,25 @@
+---
+import { format } from "date-fns";
+
+import Heading from "@components/format/text/Heading.astro";
+import SubHeading from "@components/format/text/SubHeading.astro";
+
+interface Props {
+  title: string;
+  url?: string;
+  date: Date;
+}
+
+const { title, url, date } = Astro.props;
+
+const formatDate = (date: Date): string => {
+  return format(date, "MMMM d, y");
+};
+---
+
+<Heading class="leading-relaxed">
+  {url ? <a href={url}>{title}</a> : title}
+</Heading>
+<SubHeading class="leading-relaxed">
+  {formatDate(date)}
+</SubHeading>
