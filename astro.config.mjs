@@ -7,5 +7,4 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   integrations: [tailwind(), sitemap()],
   site: "https://migueltenant.com",
-  outDir: "./docs",
 });
