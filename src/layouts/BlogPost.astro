@@ -6,6 +6,7 @@ import type { Props as BlogProps } from "./Blog.astro";
 import PostHeading from "@components/pages/blog/PostHeading.astro";
 import Paragraph from "@components/format/text/Paragraph.astro";
 import Link from "@components/format/links/Link.astro";
+import { BLOG_PATH } from "src/config";
 
 export type Props = BlogProps & {
   frontmatter: {
@@ -31,6 +32,6 @@ const formatDate = (date: Date): string => {
   </div>
   <slot />
   <Paragraph size="lg" class="mt-12 text-center">
-    <Link href="/blog">See more posts</Link>
+    <Link href={BLOG_PATH}>See more posts</Link>
   </Paragraph>
 </BlogLayout>

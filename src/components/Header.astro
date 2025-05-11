@@ -5,10 +5,12 @@ export interface Props {
 
 const { title } = Astro.props;
 
+import { BLOG_PATH } from "src/config";
+
 const navLinks = [
   { name: "Home", path: "/" },
   { name: "Work", path: "/#work" },
-  { name: "Blog", path: "/blog" },
+  { name: "Writing", path: BLOG_PATH },
 ];
 ---
 

@@ -31,7 +31,7 @@ const posts = (await getCollection("blog")).sort(
                 <article>
                   <PostHeading
                     title={post.data.title}
-                    url={`${BLOG_PATH}/${post.slug}`}
+                    url={`${BLOG_PATH}/${post.id}`}
                     date={post.data.date}
                   />
                   <Paragraph>{post.data.description}</Paragraph>

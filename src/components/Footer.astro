@@ -3,31 +3,31 @@ import {
   SOCIAL_GITHUB,
   SOCIAL_LINKEDIN,
   SOCIAL_MAIL,
-  SOCIAL_TWITTER,
+  SOCIAL_BSKY,
 } from "src/config";
 
 import GitHubIcon from "@components/svg/GitHubIcon.astro";
 import LinkedInIcon from "@components/svg/LinkedInIcon.astro";
 import MailIcon from "@components/svg/MailIcon.astro";
-import TwitterIcon from "@components/svg/TwitterIcon.astro";
+import BlueskyIcon from "@components/svg/BlueskyIcon.astro";
 
 const { class: className, ...props } = Astro.props;
 ---
 
 <footer class:list={["my-32", className]} {...props}>
   <ul class="flex flex-row justify-center space-x-4 md:space-x-6">
-    <!-- <li
-      class="text-neutral-600 hover:text-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-200"
-    >
-      <a href={SOCIAL_TWITTER}>
-        <TwitterIcon />
-      </a>
-    </li> -->
     <li
       class="text-neutral-600 hover:text-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-200"
     >
       <a href={SOCIAL_MAIL} aria-label="Email" title="Email">
         <MailIcon />
+      </a>
+    </li>
+    <li
+      class="text-neutral-600 hover:text-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-200"
+    >
+      <a href={SOCIAL_BSKY}>
+        <BlueskyIcon />
       </a>
     </li>
     <li
