@@ -1,2 +1,11 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+
+@theme {
+  /* Default Tailwind font: https://tailwindcss.com/docs/theme#default-theme-variable-reference */
+  --default-tailwind-font:
+    ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  /* Set sans-serif font to Inter + default */
+  --font-sans: InterVariable, Inter, var(--default-tailwind-font);
+}

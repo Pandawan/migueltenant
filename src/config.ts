@@ -5,8 +5,7 @@ export const SITE_DESCRIPTION =
   "I'm a 23-year old developer, and I love building things.";
 
 export const BLOG_TITLE = "Miguel is Writing";
-export const BLOG_DESCRIPTION =
-  "Miguel's random thoughts...";
+export const BLOG_DESCRIPTION = "Miguel's random thoughts...";
 export const BLOG_PATH = "/writing";
 
 export const LINK_RESUME =
