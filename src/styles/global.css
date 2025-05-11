@@ -7,5 +7,5 @@
     ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol", "Noto Color Emoji";
   /* Set sans-serif font to Inter + default */
-  --font-sans: InterVariable, Inter, var(--default-tailwind-font);
+  --font-sans: "Inter", var(--default-tailwind-font);
 }
