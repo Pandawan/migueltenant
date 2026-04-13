@@ -4,11 +4,11 @@
   "exclude": ["dist"],
   "compilerOptions": {
     "types": ["astro/client"],
-    "baseUrl": "./",
     "paths": {
-      "@assets/*": ["src/assets/*"],
-      "@components/*": ["src/components/*"],
-      "@layouts/*": ["src/layouts/*"]
+      "src/*": ["./src/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@components/*": ["./src/components/*"],
+      "@layouts/*": ["./src/layouts/*"]
     }
   }
 }
